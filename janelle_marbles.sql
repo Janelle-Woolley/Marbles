@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 31, 2023 at 09:09 PM
+-- Generation Time: Aug 07, 2023 at 09:27 PM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
--- PHP Version: 7.4.3-4ubuntu2.18
+-- PHP Version: 7.4.3-4ubuntu2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `competitors` (
   `competitor_id` smallint UNSIGNED NOT NULL COMMENT 'Primary Key for competitors table',
   `competitor_name` varchar(20) NOT NULL,
-  `role` varchar(7) NOT NULL,
   `team_id` smallint UNSIGNED NOT NULL COMMENT 'Foreign Key from teams table'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -39,114 +38,241 @@ CREATE TABLE `competitors` (
 -- Dumping data for table `competitors`
 --
 
-INSERT INTO `competitors` (`competitor_id`, `competitor_name`, `role`, `team_id`) VALUES
-(1, 'Mallard', 'Captain', 1),
-(2, 'Billy', 'Athlete', 1),
-(3, 'Ducky', 'Athlete', 1),
-(4, 'Quacky', 'Athlete', 1),
-(5, 'Goose', 'Reserve', 1),
-(6, 'Bombay', 'Coach', 1),
-(7, 'Honk', 'Manager', 1),
-(8, 'Yellow', 'Captain', 2),
-(9, 'Yellah', 'Athlete', 2),
-(10, 'Yelley', 'Retired', 2),
-(11, 'Yellup', 'Athlete', 2),
-(12, 'Yellim', 'Athlete', 2),
-(13, 'Yeller', 'Reserve', 2),
-(14, 'Mellow', 'Coach', 2),
-(15, 'Giallo', 'Manager', 2),
-(16, 'Razzy', 'Captain', 3),
-(17, 'Rezzy', 'Athlete', 3),
-(18, 'Rizzy', 'Athlete', 3),
-(19, 'Rozzy', 'Athlete', 3),
-(20, 'Ruzzy', 'Reserve', 3),
-(21, 'Berry', 'Coach', 3),
-(22, 'Pi', 'Manager', 3),
-(23, 'Alpine', 'Captain', 4),
-(24, 'Frost', 'Athlete', 4),
-(25, 'Iceberg', 'Athlete', 4),
-(26, 'Polar', 'Athlete', 4),
-(27, 'Sheet', 'Reserve', 4),
-(28, 'Glide', 'Coach', 4),
-(29, 'Glace', 'Manager', 4),
-(30, 'Choc', 'Captain', 5),
-(31, 'Cocoa', 'Athlete', 5),
-(32, 'Mocha', 'Athlete', 5),
-(33, 'Bonbon', 'Athlete', 5),
-(34, 'Fudge', 'Reserve', 5),
-(35, 'Truffle', 'Coach', 5),
-(36, 'Caramel', 'Manager', 5),
-(37, 'Imar', 'Captain', 6),
-(38, 'Prim', 'Athlete', 6),
-(39, 'Rima', 'Athlete', 6),
-(40, 'Mary', 'Athlete', 6),
-(41, 'Aryp', 'Reserve', 6),
-(42, 'Secondary', 'Coach', 6),
-(43, 'Rypr', 'Manager', 6),
-(44, 'Wispy', 'Captain', 7),
-(45, 'Wespy', 'Athlete', 7),
-(46, 'Wospy', 'Athlete', 7),
-(47, 'Wuspy', 'Athlete', 7),
-(48, 'Waspy', 'Reserve', 7),
-(49, 'Wypsy', 'Coach', 7),
-(50, 'Willow', 'Manager', 7),
-(51, 'Pinky Toe', 'Captain', 8),
-(52, 'Pinky Rosa', 'Athlete', 8),
-(53, 'Pinky Winky', 'Athlete', 8),
-(54, 'Pinky Panther', 'Athlete', 8),
-(55, 'Pinkydink', 'Reserve', 8),
-(56, 'Pinky Promise', 'Coach', 8),
-(57, 'Pinky Ring', 'Manager', 8),
-(58, 'Shiny', 'Captain', 9),
-(59, 'Sparkle', 'Athlete', 9),
-(60, 'Shimmer', 'Athlete', 9),
-(61, 'Sterling', 'Athlete', 9),
-(62, 'Glimmer', 'Reserve', 9),
-(63, 'Gleam', 'Coach', 9),
-(64, 'Sheen', 'Manager', 9),
-(65, 'Speedy', 'Captain', 11),
-(66, 'Rapidly', 'Athlete', 11),
-(67, 'Swifty', 'Athlete', 11),
-(68, 'Velocity', 'Athlete', 11),
-(69, 'Whizzy', 'Reserve', 11),
-(70, 'Quickly', 'Coach', 11),
-(71, 'Savvy', 'Manager', 11),
-(72, 'Red Eye', 'Captain', 13),
-(73, 'Blue Eye', 'Athlete', 13),
-(74, 'Yellow Eye', 'Athlete', 13),
-(75, 'Green Eye', 'Athlete', 13),
-(76, 'Cyan Eye', 'Reserve', 13),
-(77, 'White Eye', 'Coach', 13),
-(78, 'Bullseye', 'Manager', 13),
-(79, 'Anarchy', 'Captain', 14),
-(80, 'Tumult', 'Athlete', 14),
-(81, 'Clutter', 'Athlete', 14),
-(82, 'Snarl', 'Reserve', 14),
-(83, 'Disarray', 'Athlete', 14),
-(84, 'Harmony', 'Coach', 14),
-(85, 'Entropy', 'Manager', 14),
-(86, 'Cosmo', 'Captain', 15),
-(87, 'Astron', 'Athlete', 15),
-(88, 'Starry', 'Athlete', 15),
-(89, 'Pulsar', 'Athlete', 15),
-(90, 'Quasar', 'Reserve', 15),
-(91, 'Black Hole', 'Coach', 15),
-(92, 'Atlas', 'Manager', 15),
-(93, 'Minty Flav', 'Captain', 16),
-(94, 'Minty Drizzel', 'Athlete', 16),
-(95, 'Minty Fresh', 'Athlete', 16),
-(96, 'Minty Swirl', 'Athlete', 16),
-(97, 'Minty Mint', 'Reserve', 16),
-(98, 'Minty Hint', 'Coach', 16),
-(99, 'Spearmint', 'Manager', 16),
-(100, 'Bumble', 'Captain', 12),
-(101, 'Swax', 'Reserve', 12),
-(102, 'Honey', 'Athlete', 12),
-(103, 'Stinger', 'Athlete', 12),
-(104, 'Hive', 'Athlete', 12),
-(105, 'Queen', 'Coach', 12),
-(106, 'Nectar', 'Manager', 12),
-(107, 'Beeline', 'Manager', 12);
+INSERT INTO `competitors` (`competitor_id`, `competitor_name`, `team_id`) VALUES
+(1, 'Mallard', 1),
+(2, 'Billy', 1),
+(3, 'Ducky', 1),
+(4, 'Quacky', 1),
+(5, 'Goose', 1),
+(6, 'Bombay', 1),
+(7, 'Honk', 1),
+(8, 'Yellow', 2),
+(9, 'Yellah', 2),
+(10, 'Yelley', 2),
+(11, 'Yellup', 2),
+(12, 'Yellim', 2),
+(13, 'Yeller', 2),
+(14, 'Mellow', 2),
+(15, 'Giallo', 2),
+(16, 'Razzy', 3),
+(17, 'Rezzy', 3),
+(18, 'Rizzy', 3),
+(19, 'Rozzy', 3),
+(20, 'Ruzzy', 3),
+(21, 'Berry', 3),
+(22, 'Pi', 3),
+(23, 'Alpine', 4),
+(24, 'Frost', 4),
+(25, 'Iceberg', 4),
+(26, 'Polar', 4),
+(27, 'Sheet', 4),
+(28, 'Glide', 4),
+(29, 'Glace', 4),
+(30, 'Choc', 5),
+(31, 'Cocoa', 5),
+(32, 'Mocha', 5),
+(33, 'Bonbon', 5),
+(34, 'Fudge', 5),
+(35, 'Truffle', 5),
+(36, 'Caramel', 5),
+(37, 'Imar', 6),
+(38, 'Prim', 6),
+(39, 'Rima', 6),
+(40, 'Mary', 6),
+(41, 'Aryp', 6),
+(42, 'Secondary', 6),
+(43, 'Rypr', 6),
+(44, 'Wispy', 7),
+(45, 'Wespy', 7),
+(46, 'Wospy', 7),
+(47, 'Wuspy', 7),
+(48, 'Waspy', 7),
+(49, 'Wypsy', 7),
+(50, 'Willow', 7),
+(51, 'Pinky Toe', 8),
+(52, 'Pinky Rosa', 8),
+(53, 'Pinky Winky', 8),
+(54, 'Pinky Panther', 8),
+(55, 'Pinkydink', 8),
+(56, 'Pinky Promise', 8),
+(57, 'Pinky Ring', 8),
+(58, 'Shiny', 9),
+(59, 'Sparkle', 9),
+(60, 'Shimmer', 9),
+(61, 'Sterling', 9),
+(62, 'Glimmer', 9),
+(63, 'Gleam', 9),
+(64, 'Sheen', 9),
+(65, 'Speedy', 11),
+(66, 'Rapidly', 11),
+(67, 'Swifty', 11),
+(68, 'Velocity', 11),
+(69, 'Whizzy', 11),
+(70, 'Quickly', 11),
+(71, 'Savvy', 11),
+(72, 'Red Eye', 13),
+(73, 'Blue Eye', 13),
+(74, 'Yellow Eye', 13),
+(75, 'Green Eye', 13),
+(76, 'Cyan Eye', 13),
+(77, 'White Eye', 13),
+(78, 'Bullseye', 13),
+(79, 'Anarchy', 14),
+(80, 'Tumult', 14),
+(81, 'Clutter', 14),
+(82, 'Snarl', 14),
+(83, 'Disarray', 14),
+(84, 'Harmony', 14),
+(85, 'Entropy', 14),
+(86, 'Cosmo', 15),
+(87, 'Astron', 15),
+(88, 'Starry', 15),
+(89, 'Pulsar', 15),
+(90, 'Quasar', 15),
+(91, 'Black Hole', 15),
+(92, 'Atlas', 15),
+(93, 'Minty Flav', 16),
+(94, 'Minty Drizzel', 16),
+(95, 'Minty Fresh', 16),
+(96, 'Minty Swirl', 16),
+(97, 'Minty Mint', 16),
+(98, 'Minty Hint', 16),
+(99, 'Spearmint', 16),
+(100, 'Bumble', 12),
+(101, 'Swax', 12),
+(102, 'Honey', 12),
+(103, 'Stinger', 12),
+(104, 'Hive', 12),
+(105, 'Queen', 12),
+(106, 'Nectar', 12),
+(107, 'Beeline', 12),
+(108, 'Mandarin', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `competitors_roles`
+--
+
+CREATE TABLE `competitors_roles` (
+  `competitor_id` smallint UNSIGNED NOT NULL,
+  `roles_id` smallint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `competitors_roles`
+--
+
+INSERT INTO `competitors_roles` (`competitor_id`, `roles_id`) VALUES
+(2, 1),
+(3, 1),
+(4, 1),
+(9, 1),
+(11, 1),
+(12, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(24, 1),
+(25, 1),
+(26, 1),
+(31, 1),
+(32, 1),
+(33, 1),
+(38, 1),
+(39, 1),
+(40, 1),
+(45, 1),
+(46, 1),
+(47, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(59, 1),
+(60, 1),
+(61, 1),
+(66, 1),
+(67, 1),
+(68, 1),
+(73, 1),
+(74, 1),
+(75, 1),
+(80, 1),
+(81, 1),
+(83, 1),
+(87, 1),
+(88, 1),
+(89, 1),
+(94, 1),
+(95, 1),
+(96, 1),
+(102, 1),
+(103, 1),
+(104, 1),
+(108, 1),
+(1, 2),
+(8, 2),
+(16, 2),
+(23, 2),
+(30, 2),
+(37, 2),
+(44, 2),
+(51, 2),
+(58, 2),
+(65, 2),
+(72, 2),
+(79, 2),
+(86, 2),
+(93, 2),
+(100, 2),
+(6, 3),
+(14, 3),
+(21, 3),
+(28, 3),
+(35, 3),
+(42, 3),
+(49, 3),
+(56, 3),
+(63, 3),
+(70, 3),
+(77, 3),
+(84, 3),
+(91, 3),
+(98, 3),
+(105, 3),
+(7, 4),
+(15, 4),
+(22, 4),
+(29, 4),
+(36, 4),
+(43, 4),
+(50, 4),
+(57, 4),
+(64, 4),
+(71, 4),
+(78, 4),
+(85, 4),
+(92, 4),
+(99, 4),
+(106, 4),
+(107, 4),
+(108, 4),
+(5, 5),
+(13, 5),
+(20, 5),
+(27, 5),
+(34, 5),
+(41, 5),
+(48, 5),
+(55, 5),
+(62, 5),
+(69, 5),
+(76, 5),
+(82, 5),
+(90, 5),
+(97, 5),
+(101, 5),
+(10, 6);
 
 -- --------------------------------------------------------
 
@@ -157,7 +283,7 @@ INSERT INTO `competitors` (`competitor_id`, `competitor_name`, `role`, `team_id`
 CREATE TABLE `events` (
   `event_id` smallint UNSIGNED NOT NULL COMMENT 'Primary Key for events table',
   `event_number` tinyint UNSIGNED NOT NULL,
-  `sport` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sport` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `team_id` smallint UNSIGNED NOT NULL COMMENT 'Foreign Key from teams table',
   `placement` tinyint UNSIGNED NOT NULL,
   `points` smallint UNSIGNED NOT NULL
@@ -428,6 +554,30 @@ INSERT INTO `events` (`event_id`, `event_number`, `sport`, `team_id`, `placement
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `roles_id` smallint UNSIGNED NOT NULL COMMENT 'Primary Key for roles table',
+  `role` varchar(7) NOT NULL,
+  `description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`roles_id`, `role`, `description`) VALUES
+(1, 'Athlete', 'A competitor for a marble league team'),
+(2, 'Captain', 'A team leader for a marble league team'),
+(3, 'Coach', 'A coach for a marble league team'),
+(4, 'Manager', 'A manager for a marble league team'),
+(5, 'Reserve', 'A reserve athlete for a marble league team'),
+(6, 'Retired', 'A former member of a marble league team');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teams`
 --
 
@@ -494,11 +644,24 @@ ALTER TABLE `competitors`
   ADD KEY `team_id` (`team_id`) USING BTREE;
 
 --
+-- Indexes for table `competitors_roles`
+--
+ALTER TABLE `competitors_roles`
+  ADD PRIMARY KEY (`competitor_id`,`roles_id`) USING BTREE,
+  ADD KEY `roles_id` (`roles_id`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`event_id`),
   ADD KEY `team_id` (`team_id`) USING BTREE;
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`roles_id`);
 
 --
 -- Indexes for table `teams`
@@ -520,13 +683,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `competitors`
 --
 ALTER TABLE `competitors`
-  MODIFY `competitor_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for competitors table', AUTO_INCREMENT=108;
+  MODIFY `competitor_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for competitors table', AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `event_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for events table', AUTO_INCREMENT=257;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `roles_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for roles table', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -549,6 +718,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `competitors`
   ADD CONSTRAINT `competitors_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `competitors_roles`
+--
+ALTER TABLE `competitors_roles`
+  ADD CONSTRAINT `competitors_roles_ibfk_1` FOREIGN KEY (`competitor_id`) REFERENCES `competitors` (`competitor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `competitors_roles_ibfk_2` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`roles_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `events`
