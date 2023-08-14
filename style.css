@@ -1,6 +1,6 @@
 .grid-container {
 	margin: auto; /* center the wrapper */
-	
+
 	/* Declare the grid container */
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -10,14 +10,12 @@
 
 /* grid-item class, sets defaults for the grid classes */
 .grid-item {
-	display: grid;
 	background-color: #FFF8DC;
 	border-style: solid;
 }
 
 /* Class for logo, sets grid area */
 .logo {
-	display: grid;
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 1;
@@ -26,7 +24,6 @@
 
 /* Class for logo, sets grid area */
 .banner {
-	display: grid;
 	grid-column-start: 2;
 	grid-column-end: 5;
 	grid-row-start: 1;
@@ -35,7 +32,6 @@
 
 /* Class for search_bar, sets grid area */
 .search_bar {
-	display: grid;
 	grid-column-start: 5;
 	grid-column-end: 6;
 	grid-row-start: 1;
@@ -75,7 +71,7 @@
 }
 
 /* Class for footer, sets grid area */
-.content {
+.footer {
 	grid-column-start: 1;
 	grid-column-end: 6;
 	grid-row-start: 6;
