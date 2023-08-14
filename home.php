@@ -16,7 +16,7 @@
 			include '../marbles_mysqli.php';
 		?>
 		<!-- creates grid -->
-		<div id="grid-container">
+		<div class="grid-container">
 			<!-- logo class from style sheet -->
 			<div class="grid-item logo">
 				logo
@@ -37,14 +37,9 @@
 				nav
 			</div>
 			
-			<!-- anchor_bar class from style sheet -->
-			<div class="grid-item anchor_bar">
-				anchor
-			</div>
-			
 			<!-- content class from style sheet -->
-			<div class="grid-item content">
-				content
+			<div class="grid-item home_content">
+				home content
 			</div>
 			
 			
