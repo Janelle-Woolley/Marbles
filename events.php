@@ -52,6 +52,7 @@
 				}
 				
 				?>
+				
 				<!-- Student Form -->
         		<form name="events_form" id="events_form" method="get" action="events.php">
             			<input id="event" type="submit" name="event" value="1">
@@ -78,15 +79,64 @@
 			<!-- content class from style sheet -->
 			<div class="grid-item content">
 				<?php
+				$event_column_one_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 1 AND 4";
+				$event_column_one_result = mysqli_query($conn, $event_column_one_query);
 				
+				$event_column_two_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 5 AND 8";
+				$event_column_two_result = mysqli_query($conn, $event_column_two_query);
 				
-				$this_student_query = "SELECT events.placement, teams.team_name, events.points FROM teams, events WHERE teams.team_id = events.team_id AND events.event_number = '" . $id ."'";
-				$this_student_result = mysqli_query($conn, $this_student_query);
+				$event_column_three_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 5 AND 8";
+				$event_column_three_result = mysqli_query($conn, $event_column_three_query);
 
-				while($this_student_record = mysqli_fetch_assoc($this_student_result)){
-				echo $this_student_record['placement']." ".$this_student_record['team_name']." ".$this_student_record['points']."<br>";
-				}
+				echo "Event ".$id."<br>";
+
+
 				?>
+				<div class="event-content">
+					<div class="event-column">
+						<?php
+						$sport_query = "SELECT DISTINCT sport FROM events WHERE event_number = '". $id ."'";
+						$sport_result = mysqli_query($conn, $sport_query);
+						$sport_record = mysqli_fetch_assoc($sport_result);
+						echo $sport_record['sport'];
+						?>
+					</div>
+					<div class="event-column">
+						<?php
+						while($event_column_one_record = mysqli_fetch_assoc($event_column_one_result)){
+						echo $event_column_one_record['placement']." ".$event_column_one_record['team_name']." ".$event_column_one_record['points']."<br>";
+						}
+						?>
+					</div>
+					<div class="event-column">
+						<?php
+						while($event_column_two_record = mysqli_fetch_assoc($event_column_two_result)){
+						echo $event_column_two_record['placement']." ".$event_column_two_record['team_name']." ".$event_column_two_record['points']."<br>";
+						}
+						?>
+					</div>
+					<div class="event-column">
+						<?php
+						while($event_column_three_record = mysqli_fetch_assoc($event_column_three_result)){
+						echo $event_column_three_record['placement']." ".$event_column_three_record['team_name']." ".$event_column_three_record['points']."<br>";
+						}
+						?>
+					</div>
+					
+					
+				</div>
 			</div>
 			
 			
