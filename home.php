@@ -44,6 +44,7 @@
 			
 			<!-- content class from style sheet -->
 			<div class="grid-item home_content">
+				<!-- description about Jelle's Marble Runs -->
 				<p>
 					Jelle's Marble Runs, also known as Jelle's Marble Race, is a popular YouTube channel and online sports phenomenon created by Jelle Bakker and Dion Bakker. This
 					unique and imaginative series brings the world of sports to life using marbles as athletes. The concept revolves around various marble teams competing in intricate
