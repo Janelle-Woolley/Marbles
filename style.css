@@ -11,7 +11,7 @@
 /* grid-item class, sets defaults for the grid classes */
 .grid-item {
 	background-color: #FFF8DC;
-	border-style: solid;
+	text-align: center;
 }
 
 /* Class for logo, sets grid area */
@@ -76,4 +76,34 @@
 	grid-column-end: 6;
 	grid-row-start: 6;
 	grid-row-end: 7;
+	text-align: left;
+}
+
+/* Class for event content, sets flex box */
+.event-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.event-column {
+	text-align: left;
+}
+
+/* Class for team information, sets flex box */
+.team-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* Class for team content, sets flex box */
+.team-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap
 }
