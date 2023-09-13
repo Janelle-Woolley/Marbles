@@ -13,7 +13,10 @@
     <body>
 		<!-- opens php -->
     	<?php
+			session_start();
 			include '../marbles_mysqli.php';
+			// debug code
+			echo "Logged In: ".$_SESSION['username'];
 			
 			function print_roles($database_record, $role){
 				if($database_record['role'] == $role){	
@@ -47,6 +50,7 @@
 					<a href="home.php"> HOME </a>
 					<a href="teams.php"> TEAMS </a>
 					<a href="events.php"> EVENT </a>
+					<a href="login.php"> LOGIN </a>
             	</nav>
 			</div>
 			
