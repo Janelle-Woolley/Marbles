@@ -13,7 +13,10 @@
     <body>
 		<!-- opens php -->
     	<?php
+			session_start();
 			include '../marbles_mysqli.php';
+			// debug code
+			echo "Logged In: ".$_SESSION['username'];
 		?>
 		<!-- creates grid -->
 		<div class="grid-container">
@@ -39,6 +42,7 @@
 					<a href="home.php"> HOME </a>
 					<a href="teams.php"> TEAMS </a>
 					<a href="events.php"> EVENT </a>
+					<a href="login.php"> LOGIN </a>
             	</nav>
 			</div>
 			
