@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	
+<!-- Sets document language to english -->
+<html lang="en">
+
+    <!-- Creates title (displays in browser bar)
+    Sets charset to utf-8 (setting character encoding)
+    Links to CSS style sheet-->
+    <head>
+        <title> ADD TEAM - Jelle's Marble Leauge </title>
+        <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+	<!-- opens php -->
+	<?php
+		session_start();
+		include '../marbles_mysqli.php';
+		
+		$event_number = $_POST['event_number'];
+		$sport = $_POST['sport'];
+		$team_id = $_POST['marble_team'];
+		$placement = $_POST['event_placement'];
+		$points = $_POST['points'];
+		
+		$insert_event = "INSERT INTO events (event_number, sport, team_id, placement, points) VALUES ('$event_number', '$sport', '$team_id', '$placement', '$points')";
+		
+		if(!mysqli_query($conn, $insert_event)){
+			echo 'Unable to add Event';
+			header("refresh:5; url = home.php");
+		} else {
+			echo 'Event Added';
+			header("refresh:2; url = home.php");
+		}
+		
+	?>
+	</body>
