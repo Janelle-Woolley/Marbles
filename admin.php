@@ -70,7 +70,7 @@
 		<div>
 			<!-- Add Marble Form -->
 			<form action="insert_marble.php" method="post">
-				Name: <input type ="text" name="marble_name" placeholder="Mallard"> <br>
+				Name: <input type ="text" name="marble_name" placeholder="Mallard" required> <br>
 				Team: <select  name="marble_team">
 						<!-- options -->
 						<?php
@@ -104,9 +104,9 @@
 		<div>
 			<!-- Add Team Form -->
 			<form action="insert_team.php" method="post">
-				Name: <input type ="text" name="team_name" placeholder="Green Ducks"> <br>
-				Code: <input type ="text" name="team_code" placeholder="GDK"> <br>
-				Hashtag: #<input type ="text" name="team_hashtag" placeholder="QuackAttack"> <br>
+				Name: <input type ="text" name="team_name" placeholder="Green Ducks" required> <br>
+				Code: <input type ="text" name="team_code" placeholder="GDK" required> <br>
+				Hashtag: #<input type ="text" name="team_hashtag" placeholder="QuackAttack" required> <br>
 				<input type ="submit" value ="Add Team">
 			</form>
 		</div>
@@ -120,7 +120,8 @@
 		<div>
 			<!-- Add Event Form -->
 			<form action="insert_event.php" method="post">
-				Event: <input type ="number" name="event_number" placeholder="1"> <br>
+				Event: <input type ="number" name="event_number" placeholder="1" required> <br>
+				Sport: <input type ="text" name="sport" placeholder="Climbing" required> <br>
 				Team: <select  name="marble_team">
 						<!-- options -->
 						<?php
@@ -132,7 +133,6 @@
 						?>
 						</select> 
 						<br>
-				Sport: <input type ="text" name="sport" placeholder="Climbing"> <br>
 				Placment: <select  name="event_placement">
 						<!-- options -->
 						<?php
@@ -144,7 +144,7 @@
 						?>
 						</select> 
 						<br>
-				Points: <input type ="number" name="points" placeholder="25"> <br>
+				Points: <input type ="number" name="points" placeholder="25" required> <br>
 				<input type ="submit" value ="Add Event">
 			</form>
 		</div>
@@ -155,8 +155,8 @@
 		<div>
 			<!-- Add Role Form -->
 			<form action="insert_role.php" method="post">
-				Name: <input type ="text" name="role_name" placeholder="Athlete"> <br>
-				Description: <input type ="text" name="description"> <br>
+				Name: <input type ="text" name="role_name" placeholder="Athlete" required> <br>
+				Description: <input type ="text" name="description" required> <br>
 				<input type ="submit" value ="Add Role">
 			</form>
 		</div>
