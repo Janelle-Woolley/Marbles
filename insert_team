@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	
+<!-- Sets document language to english -->
+<html lang="en">
+
+    <!-- Creates title (displays in browser bar)
+    Sets charset to utf-8 (setting character encoding)
+    Links to CSS style sheet-->
+    <head>
+        <title> ADD TEAM - Jelle's Marble Leauge </title>
+        <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+	<!-- opens php -->
+	<?php
+		session_start();
+		include '../marbles_mysqli.php';
+		
+		$team_name = $_POST['team_name'];
+		$team_code = $_POST['team_code'];
+		$hashtag = $_POST['team_hashtag'];
+		
+		$insert_team = "INSERT INTO teams (team_name, team_code, hashtag) VALUES ('$team_name', '$team_code', '$hashtag')";
+		
+		if(!mysqli_query($conn, $insert_team)){
+			echo 'Unable to add Marble';
+			header("refresh:5; url = home.php");
+		} else {
+			echo 'Team Added'
+			header("refresh:2; url = home.php");
+		}
+		
+	?>
+	</body>
