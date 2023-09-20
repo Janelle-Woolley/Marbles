@@ -59,7 +59,7 @@
 		
 			$rank_query = "SELECT DISTINCT `rank` FROM `users`";
 			$edit_rank_result = mysqli_query($conn, $rank_query);
-			}
+			
 
 		?>
 		
@@ -69,7 +69,7 @@
 			Role - dropdown-->
 		<div>
 			<!-- Add Marble Form -->
-			<form action="insert_marbles.php" method="post">
+			<form action="insert_marble.php" method="post">
 				Name: <input type ="text" name="marble_name" placeholder="Mallard"> <br>
 				Team: <select  name="marble_team">
 						<!-- options -->
@@ -86,7 +86,7 @@
 						<!-- options -->
 						<?php
 							while($role_record = mysqli_fetch_assoc($role_result)){
-								echo "<option value = '". $role_record['role_id'] . "'>";
+								echo "<option value = '". $role_record['roles_id'] . "'>";
 								echo $role_record['role'];
 								echo "</option>";
 							}
@@ -344,10 +344,7 @@
 					echo "<td><input type=submit></td>";
 					echo "<td><a href=delete.php?user_id=" .$users_record['user_id']. ">Delete</a></td>";
 					echo "</form></tr>";
-				}
-				
-				
-				
+				}			
 				?>
 			</table>
 		</div>
