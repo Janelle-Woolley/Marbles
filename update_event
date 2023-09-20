@@ -1,0 +1,32 @@
+<!-- Sets document language to english -->
+<html lang="en">
+
+    <!-- Creates title (displays in browser bar)
+    Sets charset to utf-8 (setting character encoding)
+    Links to CSS style sheet-->
+    <head>
+        <title> UPDATE EVENT - Jelle's Marble Leauge </title>
+        <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+    <!-- opens php -->
+    <?php
+		session_start();
+		include '../marbles_mysqli.php';
+		
+		$update_events = "UPDATE events SET event_number='$_POST[event_number]', sport='$_POST[sport]', team_id='$_POST[event_team]', placement='$_POST[placement]', points='$_POST[points]' WHERE event_id='$_POST[event_id]'";
+		
+		if(!mysqli_query($conn, $update_events))
+		{
+			echo 'Not Updated';
+			// TO ADD: reset the competitor back
+			header("refresh:2; url = admin.php");
+		} else {
+			echo 'Updated';
+			header("refresh:2; url = admin.php");
+		}
+		
+	?>
+	</body>
