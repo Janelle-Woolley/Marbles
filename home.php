@@ -49,6 +49,7 @@
 					<a href="login.php"> LOGIN </a>
 					<a href="process_logout.php"> LOGOUT </a>
 					<a href="admin.php"> ADMIN </a>
+					<a href="owner.php"> OWNER </a>
 					<?php
 					// debug code
 					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
