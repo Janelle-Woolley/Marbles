@@ -16,15 +16,15 @@
 		session_start();
 		include '../marbles_mysqli.php';
 		
-		$update_user = "UPDATE users SET rank='".$_POST['rank']."' WHERE user_id='".$_POST['user_id']."'";
+		$update_user = "UPDATE `users` SET `rank`='".$_POST['rank']."' WHERE `user_id`='".$_POST['user_id']."'";
 		
 		if(!mysqli_query($conn, $update_user))
 		{
-			echo 'Not Updated'.mysqli_error($conn);
-			header("refresh:20; url = admin.php");
+			echo 'Not Updated';
+			header("refresh:2; url = owner.php");
 		} else {
 			echo 'Updated';
-			header("refresh:2; url = admin.php");
+			header("refresh:2; url = owner.php");
 		}
 		
 	?>
