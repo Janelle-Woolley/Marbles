@@ -1,3 +1,5 @@
+<DOCTYPE html>
+
 <!-- Sets document language to english -->
 <html lang="en">
 
@@ -15,24 +17,26 @@
     	<?php
 			session_start();
 			include '../marbles_mysqli.php';
-			// debug code
-			echo "Logged In: ".$_SESSION['username'];
+
 		?>
 		<!-- creates grid -->
 		<div class="grid-container">
 			<!-- logo class from style sheet -->
 			<div class="grid-item logo">
-				logo
+				 <img src="images/logo.png" alt="Jelle's Marble Run's Logo" width="200" height="105">
 			</div>
 			
 			<!-- banner class from style sheet -->
 			<div class="grid-item banner">
-				banner
+				Jelle's Marble Race
 			</div>
 			
 			<!-- search_bar class from style sheet -->
 			<div class="grid-item search_bar">
-				search
+				<form method="post" action="search.php">
+                	<input type="text" name="search">
+                	<input type="submit" name="submit" value="Search" class="search_button">
+         		</form>
 			</div>
 			
 			<!-- nav_bar class from style sheet -->
@@ -43,6 +47,17 @@
 					<a href="teams.php"> TEAMS </a>
 					<a href="events.php"> EVENT </a>
 					<a href="login.php"> LOGIN </a>
+					<a href="process_logout.php"> LOGOUT </a>
+					<a href="admin.php"> ADMIN </a>
+					<?php
+					// debug code
+					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+						echo "Not logged in";
+					}
+					else {
+						echo "Logged In: ".$_SESSION['username'];
+					}
+					?>
             	</nav>
 			</div>
 			
