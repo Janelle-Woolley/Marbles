@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 07, 2023 at 09:27 PM
--- Server version: 8.0.33-0ubuntu0.20.04.2
+-- Generation Time: Sep 22, 2023 at 12:49 AM
+-- Server version: 8.0.34-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3-4ubuntu2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -559,7 +559,7 @@ INSERT INTO `events` (`event_id`, `event_number`, `sport`, `team_id`, `placement
 
 CREATE TABLE `roles` (
   `roles_id` smallint UNSIGNED NOT NULL COMMENT 'Primary Key for roles table',
-  `role` varchar(7) NOT NULL,
+  `role` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -602,10 +602,10 @@ INSERT INTO `teams` (`team_id`, `team_name`, `team_code`, `hashtag`) VALUES
 (7, 'Midnight Wisps', 'MNW', 'WillOfTheWisps'),
 (8, 'Pinkies', 'PNK', 'PinkyPower'),
 (9, 'Shining Swarm', 'SHI', 'RiseAndShine'),
-(10, 'O\'rangers', 'ORA', 'GOrangers'),
+(10, 'Orangers', 'ORA', 'GOrangers'),
 (11, 'Savage Speeders', 'SAV', 'SpeedIsKey'),
 (12, 'Bumblebees', 'BEE', 'BumbleRumble'),
-(13, 'Crazy Cat\'s Eyes', 'CCE', 'EyesOnThePrize'),
+(13, 'Crazy Cats Eyes', 'CCE', 'EyesOnThePrize'),
 (14, 'Balls of Chaos', 'BOC', 'LetChaosReign'),
 (15, 'Team Galactic', 'GAL', 'ReachForTheStars'),
 (16, 'Minty Maniacs', 'MNT', 'MintCondition');
@@ -630,7 +630,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `rank`) VALUES
 (1, 'stephen', '$2y$10$b3UgPDo5vlhF.WCZvGJcNejLxaxNnuwTw.Out5G8Pc.4gBjrimz66', 'owner'),
 (2, 'marble_fan', '$2y$10$.ROFLjzUlP6qMSjt5fT0S.SWU9VEOTXbzXdlXvLGBRjb9lVsvbUg2', 'user'),
-(3, 'admin_1', '$2y$10$LFPmrmKZn4.bOUVEpl9x/ecVmSCZuQkGt1k.AlmUFwap3fifxZQua', 'admin');
+(3, 'admin_1', '$2y$10$LFPmrmKZn4.bOUVEpl9x/ecVmSCZuQkGt1k.AlmUFwap3fifxZQua', 'admin'),
+(4, 'janelle', '$2y$10$y9R/k437LOmLOW.MtN0W8.kZ9tqLsf9OgRHkD3A.hFE8adOh10iD2', 'user'),
+(6, 'marblelover', '$2y$10$X2YOqhOmTFAxCPqpIVabMOuY77IiDmq9QNSKkYmVnj.b6XdDRfB1a', 'user'),
+(8, 'i forgot', '$2y$10$KMObMLzckfomvPY6j/qbX.SHaLNoGEZYck4K4vMOMWVY0bn/TTHtu', 'user');
 
 --
 -- Indexes for dumped tables
@@ -683,31 +686,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `competitors`
 --
 ALTER TABLE `competitors`
-  MODIFY `competitor_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for competitors table', AUTO_INCREMENT=109;
+  MODIFY `competitor_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for competitors table', AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for events table', AUTO_INCREMENT=257;
+  MODIFY `event_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for events table', AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `roles_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for roles table', AUTO_INCREMENT=7;
+  MODIFY `roles_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for roles table', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `team_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for teams table', AUTO_INCREMENT=17;
+  MODIFY `team_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for teams table', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for user table', AUTO_INCREMENT=4;
+  MODIFY `user_id` smallint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key for user table', AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
