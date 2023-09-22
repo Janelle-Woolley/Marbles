@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
 <!-- Sets document language to english -->
 <html lang="en">
@@ -17,12 +17,7 @@
     <?php
 		session_start();
 		include '../marbles_mysqli.php';
-		?>
-		<form method="post">
-                	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
-         </form>
-		<?php
+
             /* searches database to see if the input matches */
             if(isset($_POST['search'])){
                 $search = $_POST['search'];
