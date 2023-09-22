@@ -25,6 +25,29 @@
 				echo "Logged In: ".$_SESSION['username'];
 			}
 		
+		
+			if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+			header("Location: error.php");
+			}
+			
+			$username = $_SESSION['username'];
+			if(!$username){
+			header("Location: error.php");
+			}
+
+			$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
+			$user_rank_result = mysqli_query($conn, $user_rank_query);
+			$user_rank_record = mysqli_fetch_assoc($user_rank_result);
+
+			$user_rank = $user_rank_record['rank']; // Store the user's rank in a variable
+			$unallowed_rank = "user"; // set the rank not allowed on the page
+
+			// need to use the 'user' rank for the loop due to there being 2 roles allowed to access the page
+			// if rank != required_rank1 or rank != required_rank2 will always be false, therefore noone can access the page
+			if ($user_rank == $unallowed_rank) {
+				header("Location: error.php");
+			}
+		
 			$team_query = "SELECT * FROM teams";
 			$team_result = mysqli_query($conn, $team_query);
 			$event_team_result = mysqli_query($conn, $team_query);
@@ -54,13 +77,6 @@
 							ORDER BY event_number ASC";
 			$event_result = mysqli_query($conn, $event_query);
 		
-			$users_query = "SELECT * FROM users";
-			$users_result = mysqli_query($conn, $users_query);
-		
-			$rank_query = "SELECT DISTINCT `rank` FROM `users`";
-			$edit_rank_result = mysqli_query($conn, $rank_query);
-			
-
 		?>
 		
 		<!--Add Marbles
@@ -174,7 +190,7 @@
 				</tr>
 				<?php
 				while($marble_record = mysqli_fetch_assoc($marble_result)){
-					echo "<tr><form action = update_marbles.php method = post>";
+					echo "<tr><form action = update_marble.php method = post>";
 					echo "<td><input type=text name=marble_name value='".$marble_record['competitor_name']."'></td>";
 					echo "<td><select  name='marble_team'>";
 					// Reset the record pointer to the beginning of the result set
@@ -188,7 +204,7 @@
 						echo "<option value = '$team_id' $isSelected>$display_team</option>";
 						}
 					echo "</select> </td>";
-					echo "<td><select  name='marble_team'>";
+					echo "<td><select  name='marble_role'>";
 					// Reset the record pointer to the beginning of the result set
 					mysqli_data_seek($edit_marble_role_result, 0);
 					while($edit_marble_role_record = mysqli_fetch_assoc($edit_marble_role_result)){
@@ -202,7 +218,7 @@
 					echo "</select> </td>";
 					echo "<td><input type=hidden name=competitor_id value='".$marble_record['competitor_id']."'></td>";
 					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete.php?competitor_id=" .$marble_record['competitor_id']. ">Delete</a></td>";
+					echo "<td><a href=delete_marble.php?competitor_id=" .$marble_record['competitor_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}	
 				
@@ -223,14 +239,14 @@
 				</tr>
 				<?php
 				while($edit_teams_record = mysqli_fetch_assoc($edit_teams_result)){
-					echo "<tr><form action = update_teams.php method = post>";
+					echo "<tr><form action = update_team.php method = post>";
 					// htmlspecialchars from ChatGPT
 					echo "<td><input type=text name=team_name value='".htmlspecialchars($edit_teams_record['team_name'], ENT_QUOTES)."'></td>";
 					echo "<td>#<input type=text name=hashtag value='".$edit_teams_record['hashtag']."'></td>";
 					echo "<td><input type=text name=team_code value='".$edit_teams_record['team_code']."'></td>";
 					echo "<td><input type=hidden name=team_id value='".$edit_teams_record['team_id']."'></td>";
 					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete.php?team_id=" .$edit_teams_record['team_id']. ">Delete</a></td>";
+					echo "<td><a href=delete_team.php?team_id=" .$edit_teams_record['team_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
 				?>
@@ -254,7 +270,7 @@
 				</tr>
 				<?php
 				while($edit_events_record = mysqli_fetch_assoc($event_result)){
-					echo "<tr><form action = update_events.php method = post>";
+					echo "<tr><form action = update_event.php method = post>";
 					echo "<td><input type=text name=event_number value='".$edit_events_record['event_number']."'></td>";
 					echo "<td><input type=text name=sport value='".$edit_events_record['sport']."'></td>";
 					echo "<td><select  name='event_team'>";
@@ -269,7 +285,7 @@
 						echo "<option value = '$team_id' $isSelected>$display_team</option>";
 						}
 					echo "</select> </td>";
-					echo "<td><select  name='palcement'>";
+					echo "<td><select  name='placement'>";
 					// Reset the record pointer to the beginning of the result set
 					mysqli_data_seek($edit_placement_result, 0);
 					while($edit_placement_record = mysqli_fetch_assoc($edit_placement_result)){
@@ -284,7 +300,7 @@
 					echo "<td><input type=text name=points value='".$edit_events_record['points']."'></td>";
 					echo "<td><input type=hidden name=event_id value='".$edit_events_record['event_id']."'></td>";
 					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete.php?event_id=" .$edit_events_record['event_id']. ">Delete</a></td>";
+					echo "<td><a href=delete_event.php?event_id=" .$edit_events_record['event_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
 				?>
@@ -302,49 +318,14 @@
 				</tr>
 				<?php
 				while($edit_roles_record = mysqli_fetch_assoc($edit_role_result)){
-					echo "<tr><form action = update_roles.php method = post>";
+					echo "<tr><form action = update_role.php method = post>";
 					echo "<td><input type=text name=role value='".$edit_roles_record['role']."'></td>";
 					echo "<td><input type=text name=description value='".$edit_roles_record['description']."'></td>";
 					echo "<td><input type=hidden name=roles_id value='".$edit_roles_record['roles_id']."'></td>";
 					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete.php?roles_id=" .$edit_roles_record['roles_id']. ">Delete</a></td>";
+					echo "<td><a href=delete_role.php?roles_id=" .$edit_roles_record['roles_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
-				?>
-			</table>
-		</div>
-		
-		<!--Owner:
-		Edit User
-			Name - display
-			Rank - dropdown-->
-		<div>
-			<table>
-				<tr>
-					<th>Username</th>
-					<th>Rank</th>
-				</tr>
-				<?php
-				while($users_record = mysqli_fetch_assoc($users_result)){
-					echo "<tr><form action = update_users.php method = post>";
-					echo "<td>{$users_record['username']}</td>";
-					echo "<td><select  name='rank'>";
-					// Reset the record pointer to the beginning of the result set
-					mysqli_data_seek($edit_rank_result, 0);
-					while($edit_rank_record = mysqli_fetch_assoc($edit_rank_result)){
-						// This code is from Phoebe Williamson
-						$default_rank = $users_record['rank'];
-						$rank_id = $edit_rank_record['rank'];
-						$display_rank = $edit_rank_record['rank'];
-						$isSelected = ($rank_id == $default_rank) ? 'selected' : '';
-						echo "<option value = '$rank_id' $isSelected>$display_rank</option>";
-						}
-					echo "</select> </td>";
-					echo "<td><input type=hidden name=user_id value='".$users_record['user_id']."'></td>";
-					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete.php?user_id=" .$users_record['user_id']. ">Delete</a></td>";
-					echo "</form></tr>";
-				}			
 				?>
 			</table>
 		</div>
