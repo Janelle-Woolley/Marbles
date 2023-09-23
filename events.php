@@ -17,7 +17,52 @@
     	<?php
 			session_start();
 			include '../marbles_mysqli.php';
-			
+				
+				/* gets the event number from the Events Form  */
+				if(isset($_GET['event'])){
+					$id = $_GET['event'];
+				}else{
+					/* otherwise is sets the event number to 1 */
+					$id = 1;
+				}
+		
+				/* Query to select the placement, team name, and points for places 1-4 */
+				$event_column_one_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 1 AND 4"; // Learnt about BETWEEN from:
+// https://www.simplilearn.com/tutorials/sql-tutorial/sql-between#:~:text=The%20SQL%20Between%20operator%20is,%2C%20UPDATE%2C%20and%20DELETE%20command.
+				
+				/* Runs the query above */
+				$event_column_one_result = mysqli_query($conn, $event_column_one_query);
+				
+				/* Query to select the placement, team name, and points for places 5-8 */
+				$event_column_two_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 5 AND 8";
+				/* Runs the query above */
+				$event_column_two_result = mysqli_query($conn, $event_column_two_query);
+				
+				/* Query to select the placement, team name, and points for places 9-12 */
+				$event_column_three_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 9 AND 12";
+				/* Runs the query above */
+				$event_column_three_result = mysqli_query($conn, $event_column_three_query);
+				
+				/* Query to select the placement, team name, and points for places 13-16 */
+				$event_column_four_query = "SELECT events.placement, teams.team_name, events.points 
+										FROM teams, events 
+										WHERE teams.team_id = events.team_id 
+										AND events.event_number = '" . $id ."'
+										AND events.placement BETWEEN 13 AND 16";
+				/* Runs the query above */
+				$event_column_four_result = mysqli_query($conn, $event_column_four_query);
 		?>
 		<!-- creates grid -->
 		<div class="grid-container">
@@ -62,19 +107,12 @@
 			<!-- anchor_bar class from style sheet -->
 			<div class="grid-item anchor_bar">
 				<?php
-				/* gets the event number from the Events Form  */
-				if(isset($_GET['event'])){
-					$id = $_GET['event'];
-				}else{
-					/* otherwise is sets the event number to 1 */
-					$id = 1;
-				}
 				
 				$event_number_query = "SELECT DISTINCT event_number FROM events";
 				$event_number_result = mysqli_query($conn, $event_number_query);
 				echo "<form name='events_form' id='events_form' method='get' action='events.php'>";
 				while ($event_number_record = mysqli_fetch_assoc($event_number_result)){
-					echo "<input id='event' type='submit' name='event' value='$event_number_record[event_number]'>";
+					echo "<input class='event_button' id='event' type='submit' name='event' value='$event_number_record[event_number]'>";
 				}
 				echo "</form>";
 				?>
@@ -83,52 +121,12 @@
 			
 			<!-- content class from style sheet -->
 			<div class="grid-item content">
+				<header>
 				<?php
-				
-				/* Query to select the placement, team name, and points for places 1-4 */
-				$event_column_one_query = "SELECT events.placement, teams.team_name, events.points 
-										FROM teams, events 
-										WHERE teams.team_id = events.team_id 
-										AND events.event_number = '" . $id ."'
-										AND events.placement BETWEEN 1 AND 4"; // Learnt about BETWEEN from:
-// https://www.simplilearn.com/tutorials/sql-tutorial/sql-between#:~:text=The%20SQL%20Between%20operator%20is,%2C%20UPDATE%2C%20and%20DELETE%20command.
-				
-				/* Runs the query above */
-				$event_column_one_result = mysqli_query($conn, $event_column_one_query);
-				
-				/* Query to select the placement, team name, and points for places 5-8 */
-				$event_column_two_query = "SELECT events.placement, teams.team_name, events.points 
-										FROM teams, events 
-										WHERE teams.team_id = events.team_id 
-										AND events.event_number = '" . $id ."'
-										AND events.placement BETWEEN 5 AND 8";
-				/* Runs the query above */
-				$event_column_two_result = mysqli_query($conn, $event_column_two_query);
-				
-				/* Query to select the placement, team name, and points for places 9-12 */
-				$event_column_three_query = "SELECT events.placement, teams.team_name, events.points 
-										FROM teams, events 
-										WHERE teams.team_id = events.team_id 
-										AND events.event_number = '" . $id ."'
-										AND events.placement BETWEEN 9 AND 12";
-				/* Runs the query above */
-				$event_column_three_result = mysqli_query($conn, $event_column_three_query);
-				
-				/* Query to select the placement, team name, and points for places 13-16 */
-				$event_column_four_query = "SELECT events.placement, teams.team_name, events.points 
-										FROM teams, events 
-										WHERE teams.team_id = events.team_id 
-										AND events.event_number = '" . $id ."'
-										AND events.placement BETWEEN 13 AND 16";
-				/* Runs the query above */
-				$event_column_four_result = mysqli_query($conn, $event_column_four_query);
-
 				/* Prints out the event number */
 				echo "Event ".$id."<br>";
-
-
 				?>
-				
+				</header>
 				<!-- event-content class from style sheet -->
 				<div class="event-content">
 					<!-- event-column class from style sheet -->
