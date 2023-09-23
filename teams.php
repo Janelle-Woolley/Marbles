@@ -1,3 +1,5 @@
+<DOCTYPE html>
+
 <!-- Sets document language to english -->
 <html lang="en">
 
@@ -16,7 +18,12 @@
 			session_start();
 			include '../marbles_mysqli.php';
 			// debug code
-			echo "Logged In: ".$_SESSION['username'];
+			if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+				echo "Not logged in";
+			}
+			else {
+				echo "Logged In: ".$_SESSION['username'];
+			}
 			
 			function print_roles($database_record, $role){
 				if($database_record['role'] == $role){	
@@ -78,7 +85,7 @@
 			<div class="grid-item content">
 				<div class="team-content">
 					<div id="bumble-bees" class="team-info">
-					<div>
+					<div class="team-info-column">
 						<?php
 							$bumble_bees_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 12";
 							$bumble_bees_result = mysqli_query($conn, $bumble_bees_query);
@@ -88,7 +95,7 @@
 							echo "#".$bumble_bees_record['hashtag'];
 						?>
 					</div>
-					<div>
+					<div class="team-info-column">
 						<?php
 
 						$bumble_bees_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
@@ -104,8 +111,8 @@
 							print_roles($bumble_bees_members_record_1, "Athlete");
 						}
 						?>
-						</div>
-						<div>
+					</div>
+					<div class="team-info-column">
 						<?php
 							$bumble_bees_members_result_2 = mysqli_query($conn, $bumble_bees_members_query);
 							while ($bumble_bees_members_record_2 = mysqli_fetch_assoc($bumble_bees_members_result_2)){
@@ -115,10 +122,10 @@
 								print_roles($bumble_bees_members_record_2, "Retired");
 							}
 						?>
-						</div>
+					</div>
 					</div>
 					<div id="balls-of-chaos" class="team-info">
-						<div>
+						<div class="team-info-column">
 						<?php
 							$balls_of_chaos_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 14";
 							$balls_of_chaos_result = mysqli_query($conn, $balls_of_chaos_query);
@@ -127,24 +134,24 @@
 							echo "<br>";
 							echo "#".$balls_of_chaos_record['hashtag'];
 							?>
+						</div>
+						<div class="team-info-column">
+							<?php
+								$balls_of_chaos_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
+																FROM competitors, roles, teams, competitors_roles 
+																WHERE competitors.team_id = teams.team_id 
+																AND competitors.competitor_id = competitors_roles.competitor_id 
+																AND roles.roles_id = competitors_roles.roles_id
+																AND teams.team_id = 14";
+							
+								$balls_of_chaos_members_result = mysqli_query($conn, $balls_of_chaos_members_query);
+								while ($balls_of_chaos_members_record_1 = mysqli_fetch_assoc($balls_of_chaos_members_result)){
+									print_roles($balls_of_chaos_members_record_1, "Captain");
+									print_roles($balls_of_chaos_members_record_1, "Athlete");
+								}
+							?>
 							</div>
-							<div>
-								<?php
-									$balls_of_chaos_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
-																	FROM competitors, roles, teams, competitors_roles 
-																	WHERE competitors.team_id = teams.team_id 
-																	AND competitors.competitor_id = competitors_roles.competitor_id 
-																	AND roles.roles_id = competitors_roles.roles_id
-																	AND teams.team_id = 14";
-
-									$balls_of_chaos_members_result = mysqli_query($conn, $balls_of_chaos_members_query);
-									while ($balls_of_chaos_members_record_1 = mysqli_fetch_assoc($balls_of_chaos_members_result)){
-										print_roles($balls_of_chaos_members_record_1, "Captain");
-										print_roles($balls_of_chaos_members_record_1, "Athlete");
-									}
-								?>
-							</div>
-							<div>
+							<div class="team-info-column">
 							<?php
 								$balls_of_chaos_members_result_2 = mysqli_query($conn, $balls_of_chaos_members_query);
 								while ($balls_of_chaos_members_record_2 = mysqli_fetch_assoc($balls_of_chaos_members_result_2)){
@@ -157,6 +164,7 @@
 						</div>
 					</div>
 					<div id="crazy-cats-eyes" class="team-info">
+						<div class="team-info-column">
 						<?php
 							$crazy_cats_eyes_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 13";
 							$crazy_cats_eyes_result = mysqli_query($conn, $crazy_cats_eyes_query);
@@ -166,7 +174,7 @@
 							echo "#".$crazy_cats_eyes_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 
 							$crazy_cats_eyes_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
@@ -183,7 +191,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$crazy_cats_eyes_members_result_2 = mysqli_query($conn, $crazy_cats_eyes_members_query);
 							while ($crazy_cats_eyes_members_record_2 = mysqli_fetch_assoc($crazy_cats_eyes_members_result_2)){
@@ -194,7 +202,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="chocolatiers" class="team-info">
+						<div class="team-info-column">
 						<?php
 							$chocolatiers_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 5";
 							$chocolatiers_result = mysqli_query($conn, $chocolatiers_query);
@@ -204,7 +214,7 @@
 							echo "#".$chocolatiers_record['hashtag'];
 							?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$chocolatiers_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -220,7 +230,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$chocolatiers_members_result_2 = mysqli_query($conn, $chocolatiers_members_query);
 							while ($chocolatiers_members_record_2 = mysqli_fetch_assoc($chocolatiers_members_result_2)){
@@ -231,7 +241,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="team-galactic" class="team-info">
+						<div class="team-info-column">
 						<?php
 							$team_galactic_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 15";
 							$team_galactic_result = mysqli_query($conn, $team_galactic_query);
@@ -241,7 +253,7 @@
 							echo "#".$team_galactic_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$team_galactic_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -257,7 +269,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$team_galactic_members_result_2 = mysqli_query($conn, $team_galactic_members_query);
 							while ($team_galactic_members_record_2 = mysqli_fetch_assoc($team_galactic_members_result_2)){
@@ -268,7 +280,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="green-ducks" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$green_ducks_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 1";
 							$green_ducks_result = mysqli_query($conn, $green_ducks_query);
@@ -278,7 +292,7 @@
 							echo "#".$green_ducks_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$green_ducks_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -294,7 +308,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$green_ducks_members_result_2 = mysqli_query($conn, $green_ducks_members_query);
 							while ($green_ducks_members_record_2 = mysqli_fetch_assoc($green_ducks_members_result_2)){
@@ -305,7 +319,9 @@
 							}
 							?>
 					</div>
+					</div>
 					<div id="gliding-glaciers" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$gliding_glaciers_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 4";
 							$gliding_glaciers_result = mysqli_query($conn, $gliding_glaciers_query);
@@ -315,7 +331,7 @@
 							echo "#".$gliding_glaciers_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$gliding_glaciers_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -331,7 +347,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$gliding_glaciers_members_result_2 = mysqli_query($conn, $gliding_glaciers_members_query);
 							while ($gliding_glaciers_members_record_2 = mysqli_fetch_assoc($gliding_glaciers_members_result_2)){
@@ -342,7 +358,9 @@
 							}
 							?>
 					</div>
+					</div>
 					<div id="midnight-wisps" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$midnight_wisps_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 7";
 							$midnight_wisps_result = mysqli_query($conn, $midnight_wisps_query);
@@ -352,7 +370,7 @@
 							echo "#".$midnight_wisps_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$midnight_wisps_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -368,7 +386,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$midnight_wisps_members_result_2 = mysqli_query($conn, $midnight_wisps_members_query);
 							while ($midnight_wisps_members_record_2 = mysqli_fetch_assoc($midnight_wisps_members_result_2)){
@@ -379,7 +397,9 @@
 							}
 							?>
 					</div>
+					</div>
 					<div id="minty-maniacs" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$minty_maniacs_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 16";
 							$minty_maniacs_result = mysqli_query($conn, $minty_maniacs_query);
@@ -389,7 +409,7 @@
 							echo "#".$minty_maniacs_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$minty_maniacs_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -405,7 +425,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$minty_maniacs_members_result_2 = mysqli_query($conn, $minty_maniacs_members_query);
 							while ($minty_maniacs_members_record_2 = mysqli_fetch_assoc($minty_maniacs_members_result_2)){
@@ -416,7 +436,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="mellow-yellow" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$mellow_yellow_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 2";
 							$mellow_yellow_result = mysqli_query($conn, $mellow_yellow_query);
@@ -426,7 +448,7 @@
 							echo "#".$mellow_yellow_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$mellow_yellow_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 															FROM competitors, roles, teams, competitors_roles 
@@ -442,7 +464,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$mellow_yellow_members_result_2 = mysqli_query($conn, $mellow_yellow_members_query);
 							while ($mellow_yellow_members_record_2 = mysqli_fetch_assoc($mellow_yellow_members_result_2)){
@@ -453,7 +475,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="orangers" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$orangers_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 10";
 							$orangers_result = mysqli_query($conn, $orangers_query);
@@ -463,7 +487,7 @@
 							echo "#".$orangers_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$orangers_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -479,7 +503,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$orangers_members_result_2 = mysqli_query($conn, $orangers_members_query);
 							while ($orangers_members_record_2 = mysqli_fetch_assoc($orangers_members_result_2)){
@@ -490,7 +514,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="pinkies" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$pinkies_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 8";
 							$pinkies_result = mysqli_query($conn, $pinkies_query);
@@ -500,7 +526,7 @@
 							echo "#".$pinkies_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$pinkies_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -516,7 +542,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$pinkies_members_result_2 = mysqli_query($conn, $pinkies_members_query);
 							while ($pinkies_members_record_2 = mysqli_fetch_assoc($pinkies_members_result_2)){
@@ -527,7 +553,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="team-primary" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$team_primary_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 6";
 							$team_primary_result = mysqli_query($conn, $team_primary_query);
@@ -537,7 +565,7 @@
 							echo "#".$team_primary_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$team_primary_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -553,7 +581,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$team_primary_members_result_2 = mysqli_query($conn, $team_primary_members_query);
 							while ($team_primary_members_record_2 = mysqli_fetch_assoc($team_primary_members_result_2)){
@@ -564,7 +592,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="raspberry-racers" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$raspberry_racers_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 3";
 							$raspberry_racers_result = mysqli_query($conn, $raspberry_racers_query);
@@ -574,7 +604,7 @@
 							echo "#".$raspberry_racers_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$raspberry_racers_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -590,7 +620,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$raspberry_racers_members_result_2 = mysqli_query($conn, $raspberry_racers_members_query);
 							while ($raspberry_racers_members_record_2 = mysqli_fetch_assoc($raspberry_racers_members_result_2)){
@@ -601,7 +631,9 @@
 							}
 						?>
 					</div>
+					</div>
 					<div id="savage-speeders" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$savage_speeders_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 11";
 							$savage_speeders_result = mysqli_query($conn, $savage_speeders_query);
@@ -611,7 +643,7 @@
 							echo "#".$savage_speeders_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$savage_speeders_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -627,7 +659,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$savage_speeders_members_result_2 = mysqli_query($conn, $savage_speeders_members_query);
 							while ($savage_speeders_members_record_2 = mysqli_fetch_assoc($savage_speeders_members_result_2)){
@@ -638,7 +670,9 @@
 							}
 						?>
 					</div>
+					</div>	
 					<div id="shining-swarm" class="team-info">
+					<div class="team-info-column">
 						<?php
 							$shining_swarm_query = "SELECT team_code, team_name, hashtag FROM teams WHERE team_id = 9";
 							$shining_swarm_result = mysqli_query($conn, $shining_swarm_query);
@@ -648,7 +682,7 @@
 							echo "#".$shining_swarm_record['hashtag'];
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$shining_swarm_members_query = "SELECT competitors.competitor_name, roles.role, roles.description 
 														FROM competitors, roles, teams, competitors_roles 
@@ -664,7 +698,7 @@
 							}
 						?>
 						</div>
-						<div>
+						<div class="team-info-column">
 						<?php
 							$shining_swarm_members_result_2 = mysqli_query($conn, $shining_swarm_members_query);
 							while ($shining_swarm_members_record_2 = mysqli_fetch_assoc($shining_swarm_members_result_2)){
