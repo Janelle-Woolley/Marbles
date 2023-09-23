@@ -17,6 +17,7 @@ body{
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr repeat(2, 0.5fr) repeat(2, 1fr) 0.5fr;
 	grid-gap: 0px;
+
 }
 
 /* grid-item class, sets defaults for the grid classes */
@@ -122,12 +123,19 @@ a{
 	text-align: left;
 }
 
+.team-info-column{
+	width: 160px;
+}
+
 /* Class for team information, sets flex box */
 .team-info {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	padding: 5px;
+	column-gap: 8px;
+	
 }
 
 /* Class for team content, sets flex box */
@@ -136,7 +144,9 @@ a{
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	flex-wrap: wrap
+	flex-wrap: wrap;
+	padding: 10px;
+	
 }
 
 form{
