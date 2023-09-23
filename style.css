@@ -14,8 +14,8 @@ body{
 	
 	/* Declare the grid container */
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: 1fr repeat(2, 0.5fr) repeat(2, 1fr) 0.5fr;
+	grid-template-columns: 1fr, 2fr, 1fr;
+	grid-template-rows: auto, auto, auto;
 	grid-gap: 0px;
 
 }
@@ -38,7 +38,7 @@ body{
 /* Class for banner, sets grid area */
 .banner {
 	grid-column-start: 2;
-	grid-column-end: 5;
+	grid-column-end: 3;
 	grid-row-start: 1;
 	grid-row-end: 2;
 	font-size: 50px;
@@ -49,8 +49,8 @@ body{
 
 /* Class for search_bar, sets grid area */
 .search_bar {
-	grid-column-start: 5;
-	grid-column-end: 6;
+	grid-column-start: 3;
+	grid-column-end: 4;
 	grid-row-start: 1;
 	grid-row-end: 2;
 	background-color: #DF010C;
@@ -59,11 +59,12 @@ body{
 /* Class for nav_bar, sets grid area */
 .nav_bar {
 	grid-column-start: 1;
-	grid-column-end: 6;
+	grid-column-end: 4;
 	grid-row-start: 2;
 	grid-row-end: 3;
 	background-color: #F6AB02;
 	padding: 20px;
+	padding-bottom: 10px;
 	color: #FFFFFF;
 }
 
@@ -75,38 +76,40 @@ a{
 /* Class for anchor_bar, sets grid area */
 .anchor_bar {
 	grid-column-start: 1;
-	grid-column-end: 6;
+	grid-column-end: 4;
 	grid-row-start: 3;
 	grid-row-end: 4;
+	padding: 20px;
+	padding-top: 10px;
 	background-color: #F6AB02;
 }
 
 /* Class for content, sets grid area */
 .content {
-	grid-column-start: 1;
+	/*grid-column-start: 1;
 	grid-column-end: 6;
 	grid-row-start: 4;
-	grid-row-end: 6;
+	grid-row-end: 6;*/
 	background-color: #FFFFFF;
 }
 
 /* Class for home_content, sets grid area */
 .home_content {
-	grid-column-start: 1;
+	/*grid-column-start: 1;
 	grid-column-end: 6;
 	grid-row-start: 3;
-	grid-row-end: 6;
+	grid-row-end: 6;*/
 	background-color: #FFFFFF;
 }
 
 /* Class for footer, sets grid area */
 .footer {
-	grid-column-start: 1;
+	/*grid-column-start: 1;
 	grid-column-end: 6;
 	grid-row-start: 6;
 	grid-row-end: 7;
 	text-align: left;
-	padding: 8px;
+	padding: 8px;*/
 	background-color:#000000;
 	color: #FFFFFF;
 }
