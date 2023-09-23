@@ -1,3 +1,5 @@
+<DOCTYPE html>
+	
 <!-- Sets document language to english -->
 <html lang="en">
 
@@ -15,24 +17,26 @@
     	<?php
 			session_start();
 			include '../marbles_mysqli.php';
-			// debug code
-			echo "Logged In: ".$_SESSION['username'];
+			
 		?>
 		<!-- creates grid -->
 		<div class="grid-container">
 			<!-- logo class from style sheet -->
 			<div class="grid-item logo">
-				logo
+				<img src="images/logo.png" alt="Jelle's Marble Run's Logo" width="200" height="105">
 			</div>
 			
 			<!-- banner class from style sheet -->
 			<div class="grid-item banner">
-				banner
+				Jelle's Marble Race
 			</div>
 			
 			<!-- search_bar class from style sheet -->
 			<div class="grid-item search_bar">
-				search
+				<form method="post" action="search.php">
+                	<input type="text" name="search">
+                	<input type="submit" name="submit" value="Search" class="search_button">
+         		</form>
 			</div>
 			
 			<!-- nav_bar class from style sheet -->
@@ -44,6 +48,15 @@
 					<a href="events.php"> EVENT </a>
 					<a href="login.php"> LOGIN </a>
             	</nav>
+				<?php
+				// debug code
+			if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+				echo "Not logged in";
+			}
+			else {
+				echo "Logged In: ".$_SESSION['username'];
+			}
+			?>
 			</div>
 			
 			<!-- anchor_bar class from style sheet -->
@@ -56,28 +69,17 @@
 					/* otherwise is sets the event number to 1 */
 					$id = 1;
 				}
+				
+				$event_number_query = "SELECT DISTINCT event_number FROM events";
+				$event_number_result = mysqli_query($conn, $event_number_query);
+				echo "<form name='events_form' id='events_form' method='get' action='events.php'>";
+				while ($event_number_record = mysqli_fetch_assoc($event_number_result)){
+					echo "<input id='event' type='submit' name='event' value='$event_number_record[event_number]'>";
+				}
+				echo "</form>";
 				?>
-								
-				<!-- Events Form -->
-        		<form name="events_form" id="events_form" method="get" action="events.php">
-            			<input id="event" type="submit" name="event" value="1">
-						<input id="event" type="submit" name="event" value="2">
-						<input id="event" type="submit" name="event" value="3">
-						<input id="event" type="submit" name="event" value="4">
-						<input id="event" type="submit" name="event" value="5">
-						<input id="event" type="submit" name="event" value="6">
-						<input id="event" type="submit" name="event" value="7">
-						<input id="event" type="submit" name="event" value="8">
-						<input id="event" type="submit" name="event" value="9">
-						<input id="event" type="submit" name="event" value="10">
-						<input id="event" type="submit" name="event" value="11">
-						<input id="event" type="submit" name="event" value="12">
-						<input id="event" type="submit" name="event" value="13">
-						<input id="event" type="submit" name="event" value="14">
-						<input id="event" type="submit" name="event" value="15">
-						<input id="event" type="submit" name="event" value="16">
-        		</form>
 			</div>
+		</div>
 			
 			<!-- content class from style sheet -->
 			<div class="grid-item content">
@@ -186,8 +188,10 @@
 			</div>
 			
 			
+			<div class="footer_grid">
 			<!-- footer class from style sheet -->
-			<div class="grid-item footer">
+			<div class="footer">
 				footer
-			</div>	
-		</div>
+			</div>
+		</div>	
+	</body>
