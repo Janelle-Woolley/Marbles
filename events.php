@@ -85,24 +85,47 @@
 			</div>
 			
 			<!-- nav_bar class from style sheet -->
-			<div class="grid-item nav_bar">
-				<nav>
+					<div class="grid-item login_bar">
+					<nav>
+					<?php
+					// debug code
+					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+						echo "<a href='login.php'> LOGIN </a>";
+					}
+					else {
+						echo "Logged In: ".$_SESSION['username'];
+						echo "<a href='process_logout.php'> LOGOUT </a>";
+					}
+					?>
+					</nav>
+					</div>
+					<div class="grid-item nav_bar">
+					<nav>
 					<!-- Creates links to each page with names -->
 					<a href="home.php"> HOME </a>
 					<a href="teams.php"> TEAMS </a>
 					<a href="events.php"> EVENT </a>
-					<a href="login.php"> LOGIN </a>
-            	</nav>
-				<?php
-				// debug code
-			if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
-				echo "Not logged in";
-			}
-			else {
-				echo "Logged In: ".$_SESSION['username'];
-			}
-			?>
-			</div>
+					</nav>
+					</div>
+					<div class="grid-item admin_bar">
+					<nav>
+						<?php
+						if(isset($_SESSION['logged_in'])){
+						$username = $_SESSION['username'];
+						$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
+						$user_rank_result = mysqli_query($conn, $user_rank_query);
+						$user_rank_record = mysqli_fetch_assoc($user_rank_result);
+
+						if($user_rank_record['rank'] == "admin" || $user_rank_record['rank'] == "owner"){
+							echo "<a href='admin.php'> ADMIN </a>";
+						}
+						if($user_rank_record['rank'] == "owner"){
+							echo "<a href='owner.php'> OWNER </a>";
+						}
+						}
+						?>
+					</nav>
+					</div>
 			
 			<!-- anchor_bar class from style sheet -->
 			<div class="grid-item anchor_bar">
