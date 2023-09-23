@@ -61,6 +61,7 @@
 					?>
             	</nav>
 			</div>
+		</div>
 			
 			<!-- content class from style sheet -->
 			<div class="grid-item home_content">
@@ -76,8 +77,10 @@
 			</div>
 			
 			
+			<div class="footer_grid">
 			<!-- footer class from style sheet -->
-			<div class="grid-item footer">
+			<div class="footer">
 				footer
-			</div>	
+			</div>
 		</div>
+	</body>
