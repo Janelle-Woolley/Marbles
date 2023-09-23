@@ -146,10 +146,13 @@ a{
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	flex-wrap: wrap;
+	margin: 7px;
 }
 
 .event-column {
 	text-align: left;
+	width: 170px;
 }
 
 .team-info-column{
@@ -192,4 +195,17 @@ p{
 	padding-left: 200px;
 	padding-right: 200px;
 	padding-bottom: 197px;
+}
+
+header{
+	padding: 5px;
+	font-size: 30px;
+}
+
+.event_button{
+	color: #F6AB02;
+	border: 1px solid #F6AB02;
+	background-color: #000000;
+	padding: 5px;
+	margin: 5px;
 }
