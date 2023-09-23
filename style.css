@@ -95,13 +95,13 @@ a{
 	grid-row-start: 3;
 	grid-row-end: 4;
 	padding: 10px;
-	color: #DF010C;
+	color: #F6AB02;
 	background-color: #000000;
 }
 
 .anchor_bar a {
-	color: #DF010C;
-	border: 1px solid #DF010C;
+	color: #F6AB02;
+	border: 1px solid #F6AB02;
 }
 
 /* Class for content, sets grid area */
@@ -115,10 +115,6 @@ a{
 
 /* Class for home_content, sets grid area */
 .home_content {
-	/*grid-column-start: 1;
-	grid-column-end: 6;
-	grid-row-start: 3;
-	grid-row-end: 6;*/
 	background-color: #FFFFFF;
 }
 
@@ -127,6 +123,7 @@ a{
 	grid-template-columns: 1fr, 2fr, 1fr;
 	grid-template-rows: auto;
 	grid-gap: 0px;
+	bottom: 0;
 
 }
 
@@ -140,6 +137,7 @@ a{
 	padding: 8px;
 	background-color:#000000;
 	color: #FFFFFF;
+	
 }
 
 /* Class for event content, sets flex box */
@@ -188,4 +186,10 @@ a{
 
 form{
 	margin-bottom: 0px;
+}
+
+p{
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-bottom: 197px;
 }
