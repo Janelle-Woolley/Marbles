@@ -135,7 +135,8 @@
 					</div>
 		</div>
 
-		
+		<div class="admin_content">
+		<div name="marbles">
 		<!--Add Marbles
 			Name - insert
 			Team - dropdown
@@ -167,70 +168,6 @@
 						</select> 
 						<br>
 				<input type ="submit" value ="Add Marble">
-			</form>
-		</div>
-		
-		<!--Add Teams
-			Name - insert
-			Hashtag - insert
-			Code - insert-->
-		<div>
-			<!-- Add Team Form -->
-			<form action="insert_team.php" method="post">
-				Name: <input type ="text" name="team_name" placeholder="Green Ducks" required> <br>
-				Code: <input type ="text" name="team_code" placeholder="GDK" required> <br>
-				Hashtag: #<input type ="text" name="team_hashtag" placeholder="QuackAttack" required> <br>
-				<input type ="submit" value ="Add Team">
-			</form>
-		</div>
-		
-		<!--Add Events
-			Event - insert
-			Team - dropdown
-			Sport - insert
-			Placement - dropdown
-			Points - insert-->
-		<div>
-			<!-- Add Event Form -->
-			<form action="insert_event.php" method="post">
-				Event: <input type ="number" name="event_number" placeholder="1" required> <br>
-				Sport: <input type ="text" name="sport" placeholder="Climbing" required> <br>
-				Team: <select  name="marble_team">
-						<!-- options -->
-						<?php
-							while($event_team_record = mysqli_fetch_assoc($event_team_result)){
-								echo "<option value = '". $event_team_record['team_id'] . "'>";
-								echo $event_team_record['team_name'];
-								echo "</option>";
-							}
-						?>
-						</select> 
-						<br>
-				Placment: <select  name="event_placement">
-						<!-- options -->
-						<?php
-							while($placement_record = mysqli_fetch_assoc($placement_result)){
-								echo "<option value = '". $placement_record['placement'] . "'>";
-								echo $placement_record['placement'];
-								echo "</option>";
-							}
-						?>
-						</select> 
-						<br>
-				Points: <input type ="number" name="points" placeholder="25" required> <br>
-				<input type ="submit" value ="Add Event">
-			</form>
-		</div>
-		
-		<!--Add Roles + Del
-			Name - insert
-			Description - insert-->		
-		<div>
-			<!-- Add Role Form -->
-			<form action="insert_role.php" method="post">
-				Name: <input type ="text" name="role_name" placeholder="Athlete" required> <br>
-				Description: <input type ="text" name="description" required> <br>
-				<input type ="submit" value ="Add Role">
 			</form>
 		</div>
 		
@@ -282,6 +219,22 @@
 				?>
 			</table>
 		</div>
+		</div>
+		
+		<div name="teams">
+		<!--Add Teams
+			Name - insert
+			Hashtag - insert
+			Code - insert-->
+		<div>
+			<!-- Add Team Form -->
+			<form action="insert_team.php" method="post">
+				Name: <input type ="text" name="team_name" placeholder="Green Ducks" required> <br>
+				Code: <input type ="text" name="team_code" placeholder="GDK" required> <br>
+				Hashtag: #<input type ="text" name="team_hashtag" placeholder="QuackAttack" required> <br>
+				<input type ="submit" value ="Add Team">
+			</form>
+		</div>
 		
 		<!--Edit Teams + Del
 			Name - insert
@@ -308,6 +261,46 @@
 				}
 				?>
 			</table>
+		</div>
+		</div>
+		
+		<div name="events">
+		<!--Add Events
+			Event - insert
+			Team - dropdown
+			Sport - insert
+			Placement - dropdown
+			Points - insert-->
+		<div>
+			<!-- Add Event Form -->
+			<form action="insert_event.php" method="post">
+				Event: <input type ="number" name="event_number" placeholder="1" required> <br>
+				Sport: <input type ="text" name="sport" placeholder="Climbing" required> <br>
+				Team: <select  name="marble_team">
+						<!-- options -->
+						<?php
+							while($event_team_record = mysqli_fetch_assoc($event_team_result)){
+								echo "<option value = '". $event_team_record['team_id'] . "'>";
+								echo $event_team_record['team_name'];
+								echo "</option>";
+							}
+						?>
+						</select> 
+						<br>
+				Placment: <select  name="event_placement">
+						<!-- options -->
+						<?php
+							while($placement_record = mysqli_fetch_assoc($placement_result)){
+								echo "<option value = '". $placement_record['placement'] . "'>";
+								echo $placement_record['placement'];
+								echo "</option>";
+							}
+						?>
+						</select> 
+						<br>
+				Points: <input type ="number" name="points" placeholder="25" required> <br>
+				<input type ="submit" value ="Add Event">
+			</form>
 		</div>
 		
 		<!--Edit Events + Del
@@ -362,6 +355,20 @@
 				}
 				?>
 			</table>
+		</div>	
+		</div>
+		
+		<div name="roles">
+		<!--Add Roles + Del
+			Name - insert
+			Description - insert-->		
+		<div>
+			<!-- Add Role Form -->
+			<form action="insert_role.php" method="post">
+				Name: <input type ="text" name="role_name" placeholder="Athlete" required> <br>
+				Description: <input type ="text" name="description" required> <br>
+				<input type ="submit" value ="Add Role">
+			</form>
 		</div>
 		
 		<!--Edit Roles + Del
@@ -386,6 +393,9 @@
 				?>
 			</table>
 		</div>
+		</div>
+		</div>
+			
 		<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
