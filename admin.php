@@ -51,6 +51,10 @@
 			$role_result = mysqli_query($conn, $role_query);
 			$edit_marble_role_result = mysqli_query($conn, $role_query);
 			$edit_role_result = mysqli_query($conn, $role_query);
+			$extra_role_result = mysqli_query($conn, $role_query);
+		
+			$extra_role_marble_query = "SELECT competitor_id, competitor_name FROM competitors";
+			$extra_role_marble_result = mysqli_query($conn, $extra_role_marble_query);
 		
 			$marble_query = "SELECT competitors.competitor_id, competitors.competitor_name, teams.team_name, roles.role, competitors_roles.roles_id, 
 							 competitors_roles.competitor_id, teams.team_id
@@ -144,8 +148,81 @@
 			</div>
 		</div>
 
+		<!-- creates grid -->
+		<div class="grid-container">
+			<!-- logo class from style sheet -->
+			<div class="grid-item logo">
+				 <img src="images/logo.png" alt="Jelle's Marble Run's Logo" width="200" height="105">
+			</div>
+			
+			<!-- banner class from style sheet -->
+			<div class="grid-item banner">
+				Jelle's Marble Race
+			</div>
+			
+			<!-- search_bar class from style sheet -->
+			<div class="grid-item search_bar">
+				<form method="post" action="search.php">
+                	<input type="text" name="search">
+                	<input type="submit" name="submit" value="Search" class="search_button">
+         		</form>
+			</div>
+			
+			<!-- nav_bar class from style sheet -->
+					<div class="grid-item login_bar">
+					<nav>
+					<?php
+					// debug code
+					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+						echo "<a href='login.php'> LOGIN </a>";
+					}
+					else {
+						echo "Logged In: ".$_SESSION['username'];
+						echo "<a href='process_logout.php'> LOGOUT </a>";
+					}
+					?>
+					</nav>
+					</div>
+					<div class="grid-item nav_bar">
+					<nav>
+					<!-- Creates links to each page with names -->
+					<a href="home.php"> HOME </a>
+					<a href="teams.php"> TEAMS </a>
+					<a href="events.php"> EVENT </a>
+					</nav>
+					</div>
+					<div class="grid-item admin_bar">
+					<nav>
+						<?php
+						if(isset($_SESSION['logged_in'])){
+						$username = $_SESSION['username'];
+						$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
+						$user_rank_result = mysqli_query($conn, $user_rank_query);
+						$user_rank_record = mysqli_fetch_assoc($user_rank_result);
+
+						if($user_rank_record['rank'] == "admin" || $user_rank_record['rank'] == "owner"){
+							echo "<a href='admin.php'> ADMIN </a>";
+						}
+						if($user_rank_record['rank'] == "owner"){
+							echo "<a href='owner.php'> OWNER </a>";
+						}
+						}
+						?>
+					</nav>
+					</div>
+			
+			<!-- anchor_bar class from style sheet -->
+			<div class="grid-item anchor_bar">
+				<a href="#marbles">Edit Marbles</a>
+				<a href='#extra_roles'>Give Marble Extra Role</a>
+				<a href="#teams">Edit Teams</a>
+				<a href="#events">Edit Events</a>
+				<a href="#roles">Edit Roles</a>
+			</div>
+		</div>
+		
 		<div class="admin_content">
-		<div id="marbles" class="admin_box top-content">
+		<div id="marbles" class="admin_box">
 		<!--Add Marbles
 			Name - insert
 			Team - dropdown
@@ -234,9 +311,35 @@
 			</table>
 		</div>
 		</div>
-		
+		<div id="extra_roles" class="admin_box">
 		<h1> Give Marble Extra Role </h1>
-			
+			<form method="post" action="insert_extra_role.php">
+			Marble: <select  name="extra_role_marble">
+				<!-- options -->
+				<?php
+				while($extra_role_marble_record = mysqli_fetch_assoc($extra_role_marble_result)){
+					echo "<option value = '". $extra_role_marble_record['competitor_id'] . "'>";
+					echo $extra_role_marble_record['competitor_name'];
+					echo "</option>";
+				}
+				?>
+			</select>
+			<br>
+			Role: <select name="extra_role">
+				<!-- options -->
+				<?php
+				while($extra_role_record = mysqli_fetch_assoc($extra_role_result)){
+					echo "<option value = '". $extra_role_record['roles_id'] . "'>";
+					echo $extra_role_record['role'];
+					echo "</option>";
+				}
+				?>
+			</select>
+			<br>
+			<input type ="submit" value ="Add Extra Role">
+			</form>
+			</div>
+
 		<div id="teams" class="admin_box">
 		<!--Add Teams
 			Name - insert
@@ -413,8 +516,7 @@
 			</table>
 		</div>
 		</div>
-		</div>
-			
+		</div>	
 		<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
