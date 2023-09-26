@@ -133,14 +133,24 @@
 						?>
 					</nav>
 					</div>
+			
+			<!-- anchor_bar class from style sheet -->
+			<div class="grid-item anchor_bar">
+				<a href="#marbles">Edit Marbles</a>
+				<a href="#roles">Edit Roles</a>
+				<a href="#teams">Edit Teams</a>
+				<a href="#events">Edit Events</a>
+			</div>
 		</div>
 
 		<div class="admin_content">
-		<div name="marbles">
+		<div id="marbles" class="admin_box">
 		<!--Add Marbles
 			Name - insert
 			Team - dropdown
 			Role - dropdown-->
+		
+			<h1> Edit Marbles</h1>	
 		<div>
 			<!-- Add Marble Form -->
 			<form action="insert_marble.php" method="post">
@@ -211,6 +221,9 @@
 						}
 					echo "</select> </td>";
 					echo "<td><input type=hidden name=competitor_id value='".$marble_record['competitor_id']."'></td>";
+					echo "<td><input type=hidden name=current_role value='".$marble_record['roles_id']."'></td>";
+					echo "<td><input type=hidden name=current_team value='".$marble_record['team_id']."'></td>";
+					echo "<td><input type=hidden name=current_name value='".$marble_record['competitor_name']."'></td>";
 					echo "<td><input type=submit></td>";
 					echo "<td><a href=delete_marble.php?competitor_id=" .$marble_record['competitor_id']. ">Delete</a></td>";
 					echo "</form></tr>";
@@ -221,7 +234,7 @@
 		</div>
 		</div>
 		
-		<div name="teams">
+		<div id="teams" class="admin_box">
 		<!--Add Teams
 			Name - insert
 			Hashtag - insert
@@ -264,7 +277,7 @@
 		</div>
 		</div>
 		
-		<div name="events">
+		<div id="events" class="admin_box">
 		<!--Add Events
 			Event - insert
 			Team - dropdown
@@ -358,7 +371,7 @@
 		</div>	
 		</div>
 		
-		<div name="roles">
+		<div id="roles" class="admin_box">
 		<!--Add Roles + Del
 			Name - insert
 			Description - insert-->		
