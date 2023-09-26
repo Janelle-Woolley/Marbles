@@ -90,11 +90,12 @@
 			header("refresh:2; url = admin.php");
 		}
 		
-		$update_competitors_roles = "UPDATE competitors_roles SET roles_id='$_POST[marble_role]' WHERE competitor_id='$_POST[competitor_id]'";
+		$update_competitors_roles = "UPDATE competitors_roles SET roles_id='$_POST[marble_role]' WHERE competitor_id='$_POST[competitor_id]' AND roles_id='$_POST[current_role]'";
 		if(!mysqli_query($conn, $update_competitors_roles))
 		{
 			echo 'Not Updated';
-			// TO ADD: reset the competitor back
+			// reset the competitor back
+			$reset_competitors = "UPDATE competitors SET competitor_name='$_POST[current_name]', team_id='$_POST[current_team]' WHERE competitor_id='$_POST[competitor_id]'";
 			header("refresh:2; url = admin.php");
 		} else {
 			echo 'Updated';
