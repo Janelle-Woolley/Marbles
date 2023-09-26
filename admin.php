@@ -72,7 +72,7 @@
 		?>
 		
 		<!-- creates grid -->
-		<div class="grid-container">
+		<div class="grid-container fixed-nav">
 			<!-- logo class from style sheet -->
 			<div class="grid-item logo">
 				 <img src="images/logo.png" alt="Jelle's Marble Run's Logo" width="200" height="105">
@@ -137,14 +137,15 @@
 			<!-- anchor_bar class from style sheet -->
 			<div class="grid-item anchor_bar">
 				<a href="#marbles">Edit Marbles</a>
-				<a href="#roles">Edit Roles</a>
+				<a href='#extra_roles'>Give Marble Extra Role</a>
 				<a href="#teams">Edit Teams</a>
 				<a href="#events">Edit Events</a>
+				<a href="#roles">Edit Roles</a>
 			</div>
 		</div>
 
 		<div class="admin_content">
-		<div id="marbles" class="admin_box">
+		<div id="marbles" class="admin_box top-content">
 		<!--Add Marbles
 			Name - insert
 			Team - dropdown
@@ -180,7 +181,7 @@
 				<input type ="submit" value ="Add Marble">
 			</form>
 		</div>
-		
+			
 		<!--Edit Marbles + Del
 			Name - insert
 			Team - dropdown
@@ -234,11 +235,14 @@
 		</div>
 		</div>
 		
+		<h1> Give Marble Extra Role </h1>
+			
 		<div id="teams" class="admin_box">
 		<!--Add Teams
 			Name - insert
 			Hashtag - insert
 			Code - insert-->
+		<h1> Edit Teams </h1>
 		<div>
 			<!-- Add Team Form -->
 			<form action="insert_team.php" method="post">
@@ -284,6 +288,7 @@
 			Sport - insert
 			Placement - dropdown
 			Points - insert-->
+			<h1> Edit Events </h1>
 		<div>
 			<!-- Add Event Form -->
 			<form action="insert_event.php" method="post">
@@ -374,7 +379,8 @@
 		<div id="roles" class="admin_box">
 		<!--Add Roles + Del
 			Name - insert
-			Description - insert-->		
+			Description - insert-->
+			<h1> Edit Roles </h1>
 		<div>
 			<!-- Add Role Form -->
 			<form action="insert_role.php" method="post">
