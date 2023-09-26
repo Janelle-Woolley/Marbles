@@ -205,11 +205,12 @@ a{
 
 .admin_content {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
 	padding: 10px;
+	row-gap: 10px;
 }
 
 form{
@@ -247,6 +248,7 @@ header{
 h1{
 	margin: 0px;
 	margin-bottom: 5px;
+	text-align: center;
 }
 
 .login-box{
@@ -265,4 +267,13 @@ h1{
 	border-radius: 20px;
 	outline: 2px solid #000000;
 	padding: 7px;
+}
+
+.fixed-nav{
+	position: fixed;
+	width: 100%;
+}
+
+.top-content{
+	margin-top: 230px;
 }
