@@ -50,15 +50,7 @@
 			<div class="grid-item search_bar">
 				<form method="post" action="search.php">
                 	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
-         		</form>
-			</div>
-			
-			<!-- nav_bar class from style sheet -->
-			<div class="grid-item search_bar">
-				<form method="post" action="search.php">
-                	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
+                	<input type="submit" name="submit" value="Search" class="admin_button">
          		</form>
 			</div>
 			
@@ -107,7 +99,7 @@
 			</div>
 			<div class="grid-item content">
 				<?php
-				 $search_query_competitors_results = mysqli_query($conn, $search_query_competitors);
+				$search_query_competitors_results = mysqli_query($conn, $search_query_competitors);
 				$search_query_teams_results = mysqli_query($conn, $search_query_teams);
 				$search_query_events_results = mysqli_query($conn, $search_query_events);
                 $count = mysqli_num_rows($search_query_competitors_results)+mysqli_num_rows($search_query_teams_results)+mysqli_num_rows($search_query_events_results);
@@ -149,7 +141,7 @@
 		<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
-				footer
+				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
