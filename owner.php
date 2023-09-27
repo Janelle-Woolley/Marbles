@@ -146,7 +146,7 @@
 		<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
-				footer
+				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
