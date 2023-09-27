@@ -32,6 +32,7 @@ body{
 /* grid-item class, sets defaults for the grid classes */
 .grid-item {
 	text-align: center;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 /* Class for logo, sets grid area */
@@ -64,6 +65,7 @@ body{
 	grid-row-start: 1;
 	grid-row-end: 2;
 	background-color: #DF010C;
+	padding: 10%;
 }
 
 /* Class for nav_bar, sets grid area */
@@ -159,7 +161,7 @@ a:hover{
     padding: 5px;
 }
 
-/* Class for content, sets grid area */
+/* Class for content */
 .content {
 	background-color: #FFFFFF;
 	font-family: 'Rajdhani', sans-serif;
@@ -312,6 +314,7 @@ h1{
 	border-radius: 20px;
 	outline: 2px solid #000000;
 	padding: 7px;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 .admin_box{
@@ -351,10 +354,6 @@ input{
 
 th{
 	font-family: 'Rajdhani', sans-serif;
-}
-
-.search_bar{
-	padding: 10%;
 }
 
 .admin_button{
