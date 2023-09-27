@@ -33,7 +33,7 @@
 			<div class="grid-item search_bar">
 				<form method="post" action="search.php">
                 	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
+                	<input type="submit" name="submit" value="Search" class="admin_button">
          		</form>
 			</div>
 			
@@ -80,7 +80,7 @@
 					</nav>
 					</div>
 		</div>
-
+		<div class="content">
     <!-- opens php -->
     <?php
 		$update_competitors = "UPDATE competitors SET competitor_name='$_POST[marble_name]', team_id='$_POST[marble_team]' WHERE competitor_id='$_POST[competitor_id]'";
@@ -103,10 +103,11 @@
 		}
 		
 	?>
+		</div>
 	<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
-				footer
+				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
