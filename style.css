@@ -8,6 +8,12 @@
 #C20C19 - darker red
 */
 
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap'); /* font-family: 'Rajdhani', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap'); /* font-family: 'Preahvihear', sans-serif; */
+
+
+
 body{
 	margin: 0px;
 }
@@ -48,6 +54,7 @@ body{
 	padding: 30px;
 	background-color: #DF010C;
 	color: #FFFFFF;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 /* Class for search_bar, sets grid area */
@@ -68,6 +75,8 @@ body{
 	padding: 10px;
 	color: #FFFFFF;
 	background-color: #F39801;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .login_bar {
@@ -78,6 +87,8 @@ body{
 	padding: 10px;
 	color: #FFFFFF;
 	background-color: #F39801;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .admin_bar {
@@ -88,6 +99,8 @@ body{
 	padding: 10px;
 	color: #FFFFFF;
 	background-color: #F39801;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 nav{
@@ -117,6 +130,8 @@ a{
 	padding: 10px;
 	color: #F6AB02;
 	background-color: #000000;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .anchor_bar a {
@@ -147,6 +162,7 @@ a:hover{
 /* Class for content, sets grid area */
 .content {
 	background-color: #FFFFFF;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 /* Class for home_content, sets grid area */
@@ -159,8 +175,6 @@ a:hover{
 	grid-template-columns: 1fr, 2fr, 1fr;
 	grid-template-rows: auto;
 	grid-gap: 0px;
-	bottom: 0;
-
 }
 
 /* Class for footer, sets grid area */
@@ -173,7 +187,7 @@ a:hover{
 	padding: 8px;
 	background-color:#000000;
 	color: #FFFFFF;
-	
+	font-family: 'Rajdhani', sans-serif;
 }
 
 /* Class for event content, sets flex box */
@@ -240,7 +254,7 @@ form{
 p{
 	padding-left: 200px;
 	padding-right: 200px;
-	padding-bottom: 197px;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 header{
@@ -253,8 +267,12 @@ header{
 	border: 1px solid #F6AB02;
 	background-color: #000000;
 	padding: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
 	margin: 5px;
 	border-radius: 15px;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .event_button:hover{
@@ -262,8 +280,12 @@ header{
 	border: 1px solid #FFFFFF;
 	background-color: #000000;
 	padding: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
 	margin: 5px;
 	border-radius: 15px;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .login-content{
@@ -279,6 +301,7 @@ h1{
 	margin: 0px;
 	margin-bottom: 5px;
 	text-align: center;
+	font-family: 'Rajdhani', sans-serif;
 }
 
 .login-box{
@@ -299,6 +322,37 @@ h1{
 	padding: 7px;
 }
 
+.owner_box{
+	border: solid;
+	border-width: 5px;
+	border-radius: 20px;
+	outline: 2px solid #000000;
+	padding: 7px;
+	font-family: 'Rajdhani', sans-serif;
+}
+
+.owner_content{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 10px;
+	row-gap: 10px;
+}
+
+select{
+	font-family: 'Rajdhani', sans-serif;
+}
+
+input{
+	font-family: 'Rajdhani', sans-serif;
+}
+
+th{
+	font-family: 'Rajdhani', sans-serif;
+}
+
 .search_bar{
 	padding: 10%;
 }
@@ -312,6 +366,8 @@ h1{
 	border-color: #000000;
 	border-width: 2px;
 	margin: 2px;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
 
 .admin_button:hover{
@@ -323,4 +379,6 @@ h1{
 	border-color: #000000;
 	border-width: 2px;
 	margin: 2px;
+	font-family: 'Preahvihear', sans-serif;
+	font-size: 13px;
 }
