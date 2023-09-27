@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!-- Sets document language to english -->
 <html lang="en">
 
@@ -31,7 +33,7 @@
 			<div class="grid-item search_bar">
 				<form method="post" action="search.php">
                 	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
+                	<input type="submit" name="submit" value="Search" class="admin_button">
          		</form>
 			</div>
 			
@@ -79,34 +81,30 @@
 					</div>
 		</div>
 
+	<div class="login-content">
+	<div class="login-box">
     <h1>Login Here</h1>
-	
 	<!--Login Form-->
 	<form name='login_form' id='login_form' method = 'post' action = 'process_login.php'>
-		<label for='username'>Username:</label>
-		<input type='text' name='username'><br>
-		
-		<label for='password'>Password:</label>
-		<input type='password' name='password'><br>
-		
-		<input type='submit' name='submit' id='submit' value='Log In'>
+		Username: <input type='text' name='username'> <br>
+		Password: <input type='password' name='password'> <br>
+		<input type='submit' name='submit' id='submit' value='Log In' class="admin_button">
 	</form>
-	
-		<div class="item">
+	</div>
+	<div class="login-box">
 	<h1>Sign Up</h1>
-
 	<!--Sign Up Form-->
 	<form action="insert_user.php" method="post">
-		Username : <input type ="text" name="username" required> <br>
-		Password : <input type ="password" name="password" required> <br>
-		<input type ="submit" value ="Insert">
+		Username: <input type ="text" name="username" required> <br>
+		Password: <input type ="password" name="password" required> <br>
+		<input type ="submit" value ="Insert" class="admin_button">
 	</form>
-		</div>
-
+	</div>
+	</div>
 		<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
-				footer
+				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
