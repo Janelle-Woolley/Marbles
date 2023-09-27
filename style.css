@@ -124,6 +124,26 @@ a{
 	border: 1px solid #F6AB02;
 }
 
+.anchor_bar a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 15px;
+    margin-left: 7px;
+	margin-right: 7px;
+    padding: 5px;
+}
+
+a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 15px;
+    margin-left: 7px;
+	margin-right: 7px;
+    padding: 5px;
+}
+
 /* Class for content, sets grid area */
 .content {
 	background-color: #FFFFFF;
@@ -234,6 +254,16 @@ header{
 	background-color: #000000;
 	padding: 5px;
 	margin: 5px;
+	border-radius: 15px;
+}
+
+.event_button:hover{
+	color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	background-color: #000000;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 15px;
 }
 
 .login-content{
@@ -269,7 +299,28 @@ h1{
 	padding: 7px;
 }
 
-.fixed-nav{
-	position: fixed;
-	width: 100%;
+.search_bar{
+	padding: 10%;
+}
+
+.admin_button{
+    cursor: default;
+    background-color: #FFFFFF;
+    padding-block: 1px;
+	border-radius: 10px;
+	color: #000000;
+	border-color: #000000;
+	border-width: 2px;
+	margin: 2px;
+}
+
+.admin_button:hover{
+	cursor: default;
+    background-color: #F6AB02;
+    padding-block: 1px;
+	border-radius: 10px;
+	color: #000000;
+	border-color: #000000;
+	border-width: 2px;
+	margin: 2px;
 }
