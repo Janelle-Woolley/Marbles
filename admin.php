@@ -76,79 +76,6 @@
 		?>
 		
 		<!-- creates grid -->
-		<div class="grid-container fixed-nav">
-			<!-- logo class from style sheet -->
-			<div class="grid-item logo">
-				 <img src="images/logo.png" alt="Jelle's Marble Run's Logo" width="200" height="105">
-			</div>
-			
-			<!-- banner class from style sheet -->
-			<div class="grid-item banner">
-				Jelle's Marble Race
-			</div>
-			
-			<!-- search_bar class from style sheet -->
-			<div class="grid-item search_bar">
-				<form method="post" action="search.php">
-                	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
-         		</form>
-			</div>
-			
-			<!-- nav_bar class from style sheet -->
-					<div class="grid-item login_bar">
-					<nav>
-					<?php
-					// debug code
-					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
-						echo "<a href='login.php'> LOGIN </a>";
-					}
-					else {
-						echo "Logged In: ".$_SESSION['username'];
-						echo "<a href='process_logout.php'> LOGOUT </a>";
-					}
-					?>
-					</nav>
-					</div>
-					<div class="grid-item nav_bar">
-					<nav>
-					<!-- Creates links to each page with names -->
-					<a href="home.php"> HOME </a>
-					<a href="teams.php"> TEAMS </a>
-					<a href="events.php"> EVENT </a>
-					</nav>
-					</div>
-					<div class="grid-item admin_bar">
-					<nav>
-						<?php
-						if(isset($_SESSION['logged_in'])){
-						$username = $_SESSION['username'];
-						$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
-						$user_rank_result = mysqli_query($conn, $user_rank_query);
-						$user_rank_record = mysqli_fetch_assoc($user_rank_result);
-
-						if($user_rank_record['rank'] == "admin" || $user_rank_record['rank'] == "owner"){
-							echo "<a href='admin.php'> ADMIN </a>";
-						}
-						if($user_rank_record['rank'] == "owner"){
-							echo "<a href='owner.php'> OWNER </a>";
-						}
-						}
-						?>
-					</nav>
-					</div>
-			
-			<!-- anchor_bar class from style sheet -->
-			<div class="grid-item anchor_bar">
-				<a href="#marbles">Edit Marbles</a>
-				<a href='#extra_roles'>Give Marble Extra Role</a>
-				<a href="#teams">Edit Teams</a>
-				<a href="#events">Edit Events</a>
-				<a href="#roles">Edit Roles</a>
-			</div>
-		</div>
-
-		<!-- creates grid -->
 		<div class="grid-container">
 			<!-- logo class from style sheet -->
 			<div class="grid-item logo">
@@ -164,7 +91,7 @@
 			<div class="grid-item search_bar">
 				<form method="post" action="search.php">
                 	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
+                	<input type="submit" name="submit" value="Search" class="admin_button">
          		</form>
 			</div>
 			
@@ -255,7 +182,7 @@
 						?>
 						</select> 
 						<br>
-				<input type ="submit" value ="Add Marble">
+				<input type ="submit" value ="Add Marble" class='admin_button'>
 			</form>
 		</div>
 			
@@ -302,8 +229,8 @@
 					echo "<td><input type=hidden name=current_role value='".$marble_record['roles_id']."'></td>";
 					echo "<td><input type=hidden name=current_team value='".$marble_record['team_id']."'></td>";
 					echo "<td><input type=hidden name=current_name value='".$marble_record['competitor_name']."'></td>";
-					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete_marble.php?competitor_id=" .$marble_record['competitor_id']. ">Delete</a></td>";
+					echo "<td><input class='admin_button' type=submit></td>";
+					echo "<td><a class='admin_button' href=delete_marble.php?competitor_id=" .$marble_record['competitor_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}	
 				
@@ -336,7 +263,7 @@
 				?>
 			</select>
 			<br>
-			<input type ="submit" value ="Add Extra Role">
+			<input type ="submit" value ="Add Extra Role" class='admin_button'>
 			</form>
 			</div>
 
@@ -352,7 +279,7 @@
 				Name: <input type ="text" name="team_name" placeholder="Green Ducks" required> <br>
 				Code: <input type ="text" name="team_code" placeholder="GDK" required> <br>
 				Hashtag: #<input type ="text" name="team_hashtag" placeholder="QuackAttack" required> <br>
-				<input type ="submit" value ="Add Team">
+				<input type ="submit" value ="Add Team" class='admin_button'>
 			</form>
 		</div>
 		
@@ -375,8 +302,8 @@
 					echo "<td>#<input type=text name=hashtag value='".$edit_teams_record['hashtag']."'></td>";
 					echo "<td><input type=text name=team_code value='".$edit_teams_record['team_code']."'></td>";
 					echo "<td><input type=hidden name=team_id value='".$edit_teams_record['team_id']."'></td>";
-					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete_team.php?team_id=" .$edit_teams_record['team_id']. ">Delete</a></td>";
+					echo "<td><input class='admin_button' type=submit></td>";
+					echo "<td><a class='admin_button' href=delete_team.php?team_id=" .$edit_teams_record['team_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
 				?>
@@ -420,7 +347,7 @@
 						</select> 
 						<br>
 				Points: <input type ="number" name="points" placeholder="25" required> <br>
-				<input type ="submit" value ="Add Event">
+				<input type ="submit" value ="Add Event" class='admin_button'>
 			</form>
 		</div>
 		
@@ -470,8 +397,8 @@
 					echo "</select> </td>";
 					echo "<td><input type=text name=points value='".$edit_events_record['points']."'></td>";
 					echo "<td><input type=hidden name=event_id value='".$edit_events_record['event_id']."'></td>";
-					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete_event.php?event_id=" .$edit_events_record['event_id']. ">Delete</a></td>";
+					echo "<td><input class='admin_button' type=submit></td>";
+					echo "<td><a class='admin_button' href=delete_event.php?event_id=" .$edit_events_record['event_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
 				?>
@@ -489,7 +416,7 @@
 			<form action="insert_role.php" method="post">
 				Name: <input type ="text" name="role_name" placeholder="Athlete" required> <br>
 				Description: <input type ="text" name="description" required> <br>
-				<input type ="submit" value ="Add Role">
+				<input type ="submit" value ="Add Role" class='admin_button'>
 			</form>
 		</div>
 		
@@ -508,8 +435,8 @@
 					echo "<td><input type=text name=role value='".$edit_roles_record['role']."'></td>";
 					echo "<td><input type=text name=description value='".$edit_roles_record['description']."'></td>";
 					echo "<td><input type=hidden name=roles_id value='".$edit_roles_record['roles_id']."'></td>";
-					echo "<td><input type=submit></td>";
-					echo "<td><a href=delete_role.php?roles_id=" .$edit_roles_record['roles_id']. ">Delete</a></td>";
+					echo "<td><input class='admin_button' type=submit></td>";
+					echo "<td><a class='admin_button' href=delete_role.php?roles_id=" .$edit_roles_record['roles_id']. ">Delete</a></td>";
 					echo "</form></tr>";
 				}
 				?>
