@@ -35,7 +35,7 @@
 			<div class="grid-item search_bar">
 				<form method="post" action="search.php">
                 	<input type="text" name="search">
-                	<input type="submit" name="submit" value="Search" class="search_button">
+                	<input type="submit" name="submit" value="Search" class="admin_button">
          		</form>
 			</div>
 			
@@ -82,6 +82,7 @@
 					</nav>
 					</div>
 		</div>
+		<div class="content">
     <!-- opens php -->
     <?php
 	
@@ -99,10 +100,11 @@
 		header("refresh:2; url = admin.php");
 		
 	?>
+		</div>
 	<div class="footer_grid">
 			<!-- footer class from style sheet -->
 			<div class="footer">
-				footer
+				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
