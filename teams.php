@@ -104,35 +104,37 @@
          		</form>
 			</div>
 
-					<!-- nav bar login section -->
-					<div class="grid-item login_bar">
-					<nav>
+			<!-- nav bar login section -->
+			<div class="grid-item login_bar">
+				<nav>
 					<?php
-					// displays login button if logged out 
-					if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
-						echo "<a href='login.php'> LOGIN </a>";
-					}
-					// displays username and logout button if logged in
-					else {
-						echo "Logged In: ".$_SESSION['username'];
-						echo "<a href='process_logout.php'> LOGOUT </a>";
-					}
+						// displays login button if logged out 
+						if((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1){
+							echo "<a href='login.php'> LOGIN </a>";
+						}
+						// displays username and logout button if logged in
+						else {
+							echo "Logged In: ".$_SESSION['username'];
+							echo "<a href='process_logout.php'> LOGOUT </a>";
+						}
 					?>
-					</nav>
-					</div>
-					<!-- nav bar nav section -->
-					<div class="grid-item nav_bar">
-					<nav>
+				</nav>
+			</div>
+			
+			<!-- nav bar nav section -->
+			<div class="grid-item nav_bar">
+				<nav>
 					<!-- Creates links to each page with names -->
 					<a href="home.php"> HOME </a>
 					<a href="teams.php"> TEAMS </a>
 					<a href="events.php"> EVENT </a>
-					</nav>
-					</div>
-					<!-- nav bar admin button section -->
-					<div class="grid-item admin_bar">
-					<nav>
-						<?php
+				</nav>
+			</div>
+	
+			<!-- nav bar admin button section -->
+			<div class="grid-item admin_bar">
+				<nav>
+					<?php
 						if(isset($_SESSION['logged_in'])){
 						$username = $_SESSION['username'];
 						// query to get user rank
@@ -149,33 +151,34 @@
 							echo "<a href='owner.php'> OWNER </a>";
 						}
 						}
-						?>
-					</nav>
-					</div>
+					?>
+				</nav>
+			</div>
 			
 			<!-- anchor bar -->
 			<div class="grid-item anchor_bar">
 				<nav>
 					<?php
-					// runs function to display anchor buttons
-					displayButtons($conn)
+						// runs function to display anchor buttons
+						displayButtons($conn)
 					?>
 				</nav>
 			</div>
-			</div>
-			<!-- content  -->
-			<div class="content">
-				<div class="team-content">
-					<?php
+		</div>
+		<!-- content  -->
+		<div class="content">
+			<div class="team-content">
+				<?php
 					// run function to display team info boxes
 					displayTeamInfo($conn);
-		  			?>
-				</div>		
-			</div>
-			<!-- footer, creates grid -->
-			<div class="footer_grid">
+	  			?>
+			</div>		
+		</div>
+		<!-- footer, creates grid -->
+		<div class="footer_grid">
 			<div class="footer">
 				&copy; Jelle's Marble Race (Janelle Woolley)
 			</div>
 		</div>
 	</body>
+</html>
