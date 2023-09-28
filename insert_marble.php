@@ -118,7 +118,7 @@
 				$insert_competitors_roles = "INSERT INTO competitors_roles (competitor_id, roles_id) VALUES ('$competitor_id', '$role_id')";
 
 				// if the query doesn't work
-				if(mysqli_query($conn, $insert_competitors_roles)){
+				if(!mysqli_query($conn, $insert_competitors_roles)){
 					echo 'Unable to add Marble role';
 					header("refresh:2; url = admin.php");
 				// if the query does work
