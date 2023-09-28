@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!-- Sets document language to english -->
 <html lang="en">
 
@@ -11,9 +13,12 @@
     </head>
 
     <body>
+		<!-- opens php -->
 		<?php
-		session_start();
-		session_destroy();
-		header("Location: home.php");
+			// logs user out
+			session_start();
+			session_destroy();
+			header("Location: home.php");
 		?>
 	</body>
+</html>
