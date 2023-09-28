@@ -3,9 +3,6 @@
 #DF010C - red
 #000000 - black
 #FFFFFF - white
-#FAD403 - yellow
-#F39801 - other orange
-#C20C19 - darker red
 */
 
 /* Import Fonts */
@@ -13,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap'); /* font-family: 'Preahvihear', sans-serif; */
 
 
-
+/* style for the body tag */
 body{
 	margin: 0px;
 }
@@ -23,13 +20,13 @@ body{
 	
 	/* Declare the grid container */
 	display: grid;
-	grid-template-columns: 1fr, 2fr, 1fr;
-	grid-template-rows: auto, auto, auto;
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: auto;
 	grid-gap: 0px;
 
 }
 
-/* grid-item class, sets defaults for the grid classes */
+/* sets defaults for the grid classes */
 .grid-item {
 	text-align: center;
 	font-family: 'Rajdhani', sans-serif;
@@ -58,7 +55,7 @@ body{
 	font-family: 'Rajdhani', sans-serif;
 }
 
-/* Class for search_bar, sets grid area */
+/* Class for search bar, sets grid area */
 .search_bar {
 	grid-column-start: 3;
 	grid-column-end: 4;
@@ -68,7 +65,7 @@ body{
 	padding: 10%;
 }
 
-/* Class for nav_bar, sets grid area */
+/* Class for nav bar, sets grid area */
 .nav_bar {
 	grid-column-start: 2;
 	grid-column-end: 3;
@@ -81,6 +78,7 @@ body{
 	font-size: 13px;
 }
 
+/* Class for login bar, sets grid area */
 .login_bar {
 	grid-column-start: 1;
 	grid-column-end: 2;
@@ -93,6 +91,7 @@ body{
 	font-size: 13px;
 }
 
+/* Class for admin bar, sets grid area */
 .admin_bar {
 	grid-column-start: 3;
 	grid-column-end: 4;
@@ -105,6 +104,7 @@ body{
 	font-size: 13px;
 }
 
+/* nav tag styles */
 nav{
 	display: flex;
 	flex-direction: row;
@@ -113,6 +113,7 @@ nav{
 	flex-wrap: wrap;
 }
 
+/* a tag styles */
 a{
 	color: #000000;
 	text-decoration: none;
@@ -123,7 +124,7 @@ a{
     padding: 5px;
 }
 
-/* Class for anchor_bar, sets grid area */
+/* Class for anchor bar, sets grid area */
 .anchor_bar {
 	grid-column-start: 1;
 	grid-column-end: 4;
@@ -136,11 +137,13 @@ a{
 	font-size: 13px;
 }
 
+/* anchour bar a tag styles */
 .anchor_bar a {
 	color: #F6AB02;
 	border: 1px solid #F6AB02;
 }
 
+/* anchour bar a tag styles for hover */
 .anchor_bar a:hover{
 	color: #FFFFFF;
 	text-decoration: none;
@@ -151,6 +154,7 @@ a{
     padding: 5px;
 }
 
+/*  a tag styles for hover */
 a:hover{
 	color: #FFFFFF;
 	text-decoration: none;
@@ -165,16 +169,20 @@ a:hover{
 .content {
 	background-color: #FFFFFF;
 	font-family: 'Rajdhani', sans-serif;
+	text-align: center;
+	font-size: 20px;
 }
 
-/* Class for home_content, sets grid area */
+/* Class for home content */
 .home_content {
 	background-color: #FFFFFF;
 }
 
+/* Grid for footer */
 .footer_grid{
+	/* Declare the grid container */
 	display: grid;
-	grid-template-columns: 1fr, 2fr, 1fr;
+	grid-template-columns: 1fr 2fr 1fr;
 	grid-template-rows: auto;
 	grid-gap: 0px;
 }
@@ -200,13 +208,16 @@ a:hover{
 	align-items: center;
 	flex-wrap: wrap;
 	margin: 7px;
+	font-size: 15px;
 }
 
+/* Styles for columns in event-content */
 .event-column {
 	text-align: left;
 	width: 170px;
 }
 
+/* Styles for columns in team-info */
 .team-info-column{
 	width: 160px;
 }
@@ -237,8 +248,10 @@ a:hover{
 	flex-wrap: wrap;
 	padding: 10px;
 	row-gap: 7px;	
+	font-size: 15px;
 }
 
+/* Class for admin content, sets flex box */
 .admin_content {
 	display: flex;
 	flex-direction: column;
@@ -249,21 +262,25 @@ a:hover{
 	row-gap: 10px;
 }
 
+/*  form tag styles */
 form{
 	margin-bottom: 0px;
 }
 
+/*  p tag styles */
 p{
 	padding-left: 200px;
 	padding-right: 200px;
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/*  header tag styles */
 header{
 	padding: 5px;
 	font-size: 30px;
 }
 
+/* styles for buttons on the event page */
 .event_button{
 	color: #F6AB02;
 	border: 1px solid #F6AB02;
@@ -277,6 +294,7 @@ header{
 	font-size: 13px;
 }
 
+/* styles for buttons on the event page for hover */
 .event_button:hover{
 	color: #FFFFFF;
 	border: 1px solid #FFFFFF;
@@ -290,6 +308,7 @@ header{
 	font-size: 13px;
 }
 
+/* Class for login content, sets flex box */
 .login-content{
 	display: flex;
 	flex-direction: row;
@@ -299,6 +318,7 @@ header{
 	padding: 10px;
 }
 
+/*  h1 tag styles */
 h1{
 	margin: 0px;
 	margin-bottom: 5px;
@@ -306,6 +326,7 @@ h1{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/* styles for boxes on login page */
 .login-box{
 	background-color: #F39801;
 	border: solid;
@@ -317,6 +338,7 @@ h1{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/* styles for boxes on admin page */
 .admin_box{
 	border: solid;
 	border-width: 5px;
@@ -325,6 +347,7 @@ h1{
 	padding: 7px;
 }
 
+/* styles for boxes on owner page */
 .owner_box{
 	border: solid;
 	border-width: 5px;
@@ -334,6 +357,7 @@ h1{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/* Class for owner page content, sets flex box */
 .owner_content{
 	display: flex;
 	flex-direction: column;
@@ -344,18 +368,22 @@ h1{
 	row-gap: 10px;
 }
 
+/*  select tag styles */
 select{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/*  input tag styles */
 input{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/*  th tag styles */
 th{
 	font-family: 'Rajdhani', sans-serif;
 }
 
+/*  styles for buttons on admin page for hover */
 .admin_button{
     cursor: default;
     background-color: #FFFFFF;
@@ -369,6 +397,7 @@ th{
 	font-size: 13px;
 }
 
+/*  styles for buttons on admin page for hover */
 .admin_button:hover{
 	cursor: default;
     background-color: #F6AB02;
