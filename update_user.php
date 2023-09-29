@@ -7,17 +7,16 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> UPDATE USER - Jelle's Marble Leauge </title>
+        <title> UPDATE USER - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-	<!-- opens php -->
+		<!-- opens php -->
     	<?php
 			session_start();
 			include '../marbles_mysqli.php';
-
 		?>
 		<!-- creates grid -->
 		<div class="grid-container">
@@ -28,7 +27,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -87,8 +86,8 @@
 					?>
 				</nav>
 			</div>
-
 		</div>
+
 		<!-- content -->
 		<div class="content">
 			<!-- opens php -->
@@ -106,13 +105,12 @@
 					echo 'Updated';
 					header("refresh:2; url = owner.php");
 				}
-		
 			?>
 		</div>
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
