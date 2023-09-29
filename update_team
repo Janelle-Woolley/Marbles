@@ -7,13 +7,18 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> UPDATE TEAM - Jelle's Marble Leauge </title>
+        <title> UPDATE TEAM - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
 
 	<body>
-    <!-- creates grid -->
+		<!-- opens php -->
+    	<?php
+			session_start();
+			include '../marbles_mysqli.php';
+		?>
+    	<!-- creates grid -->
 		<div class="grid-container">
 			<!-- logo -->
 			<div class="grid-item logo">
@@ -22,7 +27,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -87,7 +92,7 @@
 		<div class="content">
    			<!-- opens php -->
     		<?php
-				// query to update the user team info to the values submited from the admin page
+				// query to update the team info to the values submited from the admin page
 				$update_teams = "UPDATE teams SET team_name='$_POST[team_name]', team_code='$_POST[team_code]', hashtag='$_POST[hashtag]' WHERE team_id='$_POST[team_id]'";
 
 				// if the query doesn't work print not updated
@@ -105,7 +110,7 @@
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
