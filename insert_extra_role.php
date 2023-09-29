@@ -7,7 +7,7 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> ADD EXTRA ROLE - Jelle's Marble Leauge </title>
+        <title> ADD EXTRA ROLE - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
@@ -28,7 +28,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -127,7 +127,7 @@
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
