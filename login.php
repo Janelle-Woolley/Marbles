@@ -26,7 +26,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -103,6 +103,9 @@
 			<div class="login-box">
 				<h1>Sign Up</h1>
 				<!--Sign Up Form-->
+				Sign up, is free and easy.
+				<br>
+				All you need is a username and password!
 				<form action="insert_user.php" method="post">
 					Username: <input type ="text" name="username" required> <br>
 					Password: <input type ="password" name="password" required> <br>
@@ -113,7 +116,7 @@
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
