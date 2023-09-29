@@ -5,7 +5,7 @@ all they need to know. The comments should usually include at least:
 
 PROJECT TITLE: Jelles Marble Runs
 DESCRIPTION: This project displays the teams, events and results for the 2022 marble league
-DATE OF SUBMISSION:
+DATE OF SUBMISSION: 29/09/2023
 AUTHOR: Janelle Woolley
 ASSESSMENT FOLDER: Marbles
 
