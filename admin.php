@@ -92,7 +92,7 @@
 			
 			<!-- banner class from style sheet -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search_bar class from style sheet -->
@@ -461,7 +461,7 @@
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
