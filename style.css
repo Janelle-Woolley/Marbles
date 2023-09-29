@@ -6,7 +6,7 @@
 */
 
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap'); /* font-family: 'Rajdhani', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap'); /* font-family: 'Rajdhani', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap'); /* font-family: 'Preahvihear', sans-serif; */
 
 
@@ -409,4 +409,13 @@ th{
 	margin: 2px;
 	font-family: 'Preahvihear', sans-serif;
 	font-size: 13px;
+}
+
+/*  styles for images on teams page for hover */
+.team_image{
+	border-radius: 10px;
+	border-color: #000000;
+	border-width: 2px;
+	border: solid;
+	margin-top: 5px;
 }
