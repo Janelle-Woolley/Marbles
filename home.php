@@ -7,7 +7,7 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> HOME - Jelle's Marble Leauge </title>
+        <title> HOME - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
@@ -28,7 +28,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -94,19 +94,18 @@
 		<div class="grid-item home_content">
 			<!-- description about Jelle's Marble Runs -->
 			<p>
-				Jelle's Marble Runs, also known as Jelle's Marble Race, is a popular YouTube channel and online sports phenomenon created by Jelle Bakker and Dion Bakker. This
-				unique and imaginative series brings the world of sports to life using marbles as athletes. The concept revolves around various marble teams competing in intricate
-				and creatively designed courses that mimic real-world sports events like track and field, swimming, and even the Olympics. What started as a hobby has grown into a
-				global sensation, with millions of fans eagerly following the races and supporting their favorite marble teams. Jelle's Marble Runs is not just a source of 
-				entertainment but also a testament to the power of creativity and community, uniting people from around the world in their shared enthusiasm for this quirky and 
-				engaging marble-based sports competition.
+				Jelle's Marble Runs, is a popular YouTube channel and online sports phenomenon created by Jelle Bakker and Dion Bakker. This unique and imaginative series brings the 
+				world of sports to life using marbles as athletes. The concept revolves around various marble teams competing in intricateand creatively designed courses that mimic 
+				real-world sports events like track and field, swimming, and even the Olympics. What started as a hobby has grown into a global sensation, with millions of fans eagerly 
+				following the races and supporting their favorite marble teams. Jelle's Marble Runs is not just a source of entertainment but also a testament to the power of creativity 
+				and community, uniting people from around the world in their shared enthusiasm for this quirky and engaging marble-based sports competition.
 			</p>
 		</div>
 				
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
