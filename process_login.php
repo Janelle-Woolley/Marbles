@@ -7,7 +7,7 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> LOGIN - Jelle's Marble Race </title>
+        <title> LOGIN - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
