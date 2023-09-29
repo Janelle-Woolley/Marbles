@@ -7,7 +7,7 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> DELETE USER - Jelle's Marble Leauge </title>
+        <title> DELETE USER - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
     </head>
@@ -28,7 +28,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -95,26 +95,23 @@
 		<div class="content">
 			<!-- opens php -->
 			<?php
-
 				// query to delete user from database
 				$delete_user = "DELETE FROM users WHERE user_id='$_GET[user_id]'";
 
 				// if query doesn't work
-				if(!mysqli_query($conn, $delete_user))
-				{
+				if(!mysqli_query($conn, $delete_user)){
 					echo 'Not Deleted'.mysqli_error($conn);
 				// if query does work
 				} else {
 					echo 'Deleted';
 				}
-
 				header("refresh:2; url = owner.php");
 			?>
 		</div>
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
