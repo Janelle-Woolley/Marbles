@@ -7,7 +7,7 @@
     Sets charset to utf-8 (setting character encoding)
     Links to CSS style sheet-->
     <head>
-        <title> TEAMS - Jelle's Marble Leauge </title>
+        <title> TEAMS - Jelle's Marble Runs </title>
         <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -40,7 +40,7 @@
 					echo $team_record['team_code']." - ".$team_record['team_name'];
 					echo "<br>";
 					echo "#".$team_record['hashtag'];
-					echo "<img src='images/".$team_record['image']."' alt='".$team_record['team_name']." Logo' width=100 height=124>";
+					echo "<img class='team_image' src='images/".$team_record['image']."' alt='".$team_record['team_name']." Logo' width=100px height=119px>";
 					echo "</div>";
 					// query to get team members
 					$team_members_query = "SELECT competitors.competitor_name, roles.role
@@ -93,7 +93,7 @@
 			
 			<!-- banner -->
 			<div class="grid-item banner">
-				Jelle's Marble Race
+				Jelle's Marble Runs
 			</div>
 			
 			<!-- search bar -->
@@ -136,20 +136,20 @@
 				<nav>
 					<?php
 						if(isset($_SESSION['logged_in'])){
-						$username = $_SESSION['username'];
-						// query to get user rank
-						$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
-						$user_rank_result = mysqli_query($conn, $user_rank_query);
-						$user_rank_record = mysqli_fetch_assoc($user_rank_result);
+							$username = $_SESSION['username'];
+							// query to get user rank
+							$user_rank_query = "SELECT * FROM users WHERE username = '$username'";
+							$user_rank_result = mysqli_query($conn, $user_rank_query);
+							$user_rank_record = mysqli_fetch_assoc($user_rank_result);
 
-						// displays the admin button if the user is an admin or owner
-						if($user_rank_record['rank'] == "admin" || $user_rank_record['rank'] == "owner"){
-							echo "<a href='admin.php'> ADMIN </a>";
-						}
-						// displays the owner button if the user is an owner
-						if($user_rank_record['rank'] == "owner"){
-							echo "<a href='owner.php'> OWNER </a>";
-						}
+							// displays the admin button if the user is an admin or owner
+							if($user_rank_record['rank'] == "admin" || $user_rank_record['rank'] == "owner"){
+								echo "<a href='admin.php'> ADMIN </a>";
+							}
+							// displays the owner button if the user is an owner
+							if($user_rank_record['rank'] == "owner"){
+								echo "<a href='owner.php'> OWNER </a>";
+							}
 						}
 					?>
 				</nav>
@@ -177,7 +177,7 @@
 		<!-- footer, creates grid -->
 		<div class="footer_grid">
 			<div class="footer">
-				&copy; Jelle's Marble Race (Janelle Woolley)
+				&copy; Jelle's Marble Runs (Janelle Woolley)
 			</div>
 		</div>
 	</body>
